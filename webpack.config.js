@@ -10,7 +10,6 @@ module.exports = {
     '@babel/polyfill',
     'webpack-hot-middleware/client',
     'react-hot-loader/patch',
-    './index'
   ],
   output: {
     path: path.join(__dirname, 'dist'),
@@ -69,7 +68,8 @@ module.exports = {
           mimetype: 'image/png'
         }
       }],
-      include: path.join(__dirname, 'assets')
+      // include: path.join(__dirname, 'assets')
+      include: __dirname
     }, {
       test: /\.gif$/,
       use: [{
@@ -79,7 +79,8 @@ module.exports = {
           mimetype: 'image/gif'
         }
       }],
-      include: path.join(__dirname, 'assets')
+      // include: path.join(__dirname, 'assets')
+      include: __dirname
     }, {
       test: /\.jpg$/,
       use: [{

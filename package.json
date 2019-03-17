@@ -4,7 +4,7 @@
   "description": "WGForge Frontend course materials",
   "main": "lib/index.js",
   "scripts": {
-    "build": "npm run clean & cross-env NODE_ENV=production webpack --config webpack.config.production.js",
+    "build": "cross-env NODE_ENV=production webpack --config webpack.config.production.js",
     "clean": "rimraf dist",
     "deploy": "npm run build && surge -p .",
     "export": "spectacle-renderer --delay 3000",
@@ -39,6 +39,7 @@
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.4",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.18",
+    "chalk": "^2.4.2",
     "closure-webpack-plugin": "^2.0.1",
     "cross-env": "^5.2.0",
     "css-loader": "^1.0.0",

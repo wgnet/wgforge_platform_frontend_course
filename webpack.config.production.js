@@ -1,28 +1,45 @@
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const ClosureCompilerPlugin = require('closure-webpack-plugin');
 
 /* eslint-disable */
 
-var path = require("path");
-var webpack = require("webpack");
+const path = require('path');
+const webpack = require('webpack');
+const yargs = require('yargs');
+const rimraf = require('rimraf');
+const chalk = require('chalk');
+
+const [folderName] = yargs.argv._;
+
+if (!folderName) {
+  process.stderr.write(chalk.red(`ERROR: Folder "${chalk.bold(folderName)}" doesn't exists\n`))
+  process.exit(1);
+}
+
+rimraf.sync(`dist/${folderName}`);
 
 module.exports = {
-  mode: "production",
-  entry: ["@babel/polyfill", "./index"],
+  mode: 'production',
+  entry: ['@babel/polyfill', './index'],
 
   output: {
-    path: path.join(__dirname, "dist"),
-    filename: "bundle.js",
-    publicPath: "/dist/"
+    path: path.join(__dirname, 'dist', folderName),
+    filename: 'bundle.js',
+    publicPath: '/dist/'
   },
 
   plugins: [
     new webpack.DefinePlugin({
-      "process.env": {
-        NODE_ENV: JSON.stringify("production")
+      'process.env': {
+        NODE_ENV: JSON.stringify('production')
       }
     })
   ],
+
+  resolve: {
+    alias: {
+      Presentation: path.resolve(path.join(__dirname, folderName))
+    }
+  },
 
   module: {
     rules: [
@@ -30,10 +47,10 @@ module.exports = {
         test: /\.md$/,
         use: [
           {
-            loader: "html-loader"
+            loader: 'html-loader'
           },
           {
-            loader: "markdown-loader",
+            loader: 'markdown-loader',
 
             options: {
               gfm: false
@@ -46,7 +63,7 @@ module.exports = {
         exclude: /node_modules/,
         use: [
           {
-            loader: "babel-loader"
+            loader: 'babel-loader'
           }
         ]
       },
@@ -54,10 +71,10 @@ module.exports = {
         test: /\.css$/,
         use: [
           {
-            loader: "style-loader"
+            loader: 'style-loader'
           },
           {
-            loader: "css-loader"
+            loader: 'css-loader'
           }
         ]
       },
@@ -65,7 +82,7 @@ module.exports = {
         test: /\.(png|jpg|gif)$/,
         use: [
           {
-            loader: "url-loader",
+            loader: 'url-loader',
 
             options: {
               limit: 8192
@@ -77,11 +94,11 @@ module.exports = {
         test: /\.svg$/,
         use: [
           {
-            loader: "url-loader",
+            loader: 'url-loader',
 
             options: {
               limit: 10000,
-              mimetype: "image/svg+xml"
+              mimetype: 'image/svg+xml'
             }
           }
         ]
