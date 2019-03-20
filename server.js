@@ -1,4 +1,4 @@
-/* eslint-disable */
+/* eslint-disable no-console */
 
 const fs = require('fs');
 const path = require('path');
@@ -49,5 +49,5 @@ app.listen(serverPort, 'localhost', function(err) {
     return;
   }
 
-  console.log('Listening at http://localhost:' + serverPort);
+  console.log(`Listening at http://localhost:${serverPort}`);
 });

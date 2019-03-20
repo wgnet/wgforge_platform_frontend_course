@@ -1,7 +1,5 @@
 const ClosureCompilerPlugin = require('closure-webpack-plugin');
 
-/* eslint-disable */
-
 const path = require('path');
 const webpack = require('webpack');
 const yargs = require('yargs');
@@ -11,7 +9,7 @@ const chalk = require('chalk');
 const [folderName] = yargs.argv._;
 
 if (!folderName) {
-  process.stderr.write(chalk.red(`ERROR: Folder "${chalk.bold(folderName)}" doesn't exists\n`))
+  process.stderr.write(chalk.red(`ERROR: Folder "${chalk.bold(folderName)}" doesn't exists\n`));
   process.exit(1);
 }
 
