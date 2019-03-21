@@ -58,7 +58,13 @@ const theme = createTheme(
 );
 
 // importing in such way to make sure <Notes> properly works
-const slidesToImport = [import('../../common/slides/rules')];
+const slidesToImport = [
+  new Promise((resolve, reject) =>
+    import('../../common/slides/rules')
+      .then(m => resolve(['RulesSlide', m]))
+      .catch(reject)
+  )
+];
 
 export default class Presentation extends React.Component {
   constructor(props) {
@@ -69,12 +75,12 @@ export default class Presentation extends React.Component {
   }
 
   componentDidMount() {
-    Promise.all(slidesToImport)
+    Promise.all(Object.values(slidesToImport))
       .then(loadedSlides => {
         const slides = {};
 
-        loadedSlides.forEach(s => {
-          slides[s.default.name] = s.default();
+        loadedSlides.forEach(([name, s]) => {
+          slides[name] = s.default();
         });
 
         this.setState({ slides });
@@ -153,24 +159,26 @@ export default class Presentation extends React.Component {
             </Fill>
           </Layout>
           <Notes>
-            <div>
-              Мистер Андриссен верил в то что анимации, интерактивные элементы и взаимодействие с
-              пользователем должны стать частью веб-страниц
-            </div>
-            <div>
-              По его мнению вебу не хватало скриптового языка, способного взаимодействовать с DOM
-              (который ещё не был стандартизирован)
-            </div>
-            <div>
-              Новый скриптовый язык предназначался для дизайнеров, а не программистов на Java,
-              который становился всё популярнее в то время
-            </div>
-            <div>
-              Он должен был стать частью браузера и быть лёгким и понятным для обычных людей
-            </div>
-            <div>
-              Так родилась идея создания Mocha - простого динамического скриптового языка для
-              браузера
+            <div style={{ fontSize: '1.75rem' }}>
+              <div>
+                Мистер Андриссен верил в то что анимации, интерактивные элементы и взаимодействие с
+                пользователем должны стать частью веб-страниц
+              </div>
+              <div>
+                По его мнению вебу не хватало скриптового языка, способного взаимодействовать с DOM
+                (который ещё не был стандартизирован)
+              </div>
+              <div>
+                Новый скриптовый язык предназначался для дизайнеров, а не программистов на Java,
+                который становился всё популярнее в то время
+              </div>
+              <div>
+                Он должен был стать частью браузера и быть лёгким и понятным для обычных людей
+              </div>
+              <div>
+                Так родилась идея создания Mocha - простого динамического скриптового языка для
+                браузера
+              </div>
             </div>
           </Notes>
         </Slide>
@@ -259,8 +267,8 @@ export default class Presentation extends React.Component {
             src="https://player.vimeo.com/video/208796657"
             width="800"
             height="600"
-            frameborder="0"
-            allowfullscreen
+            frameBorder="0"
+            allowFullScreen
           />
         </Slide>
 

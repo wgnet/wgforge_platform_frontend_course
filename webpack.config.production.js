@@ -5,6 +5,7 @@ const webpack = require('webpack');
 const yargs = require('yargs');
 const rimraf = require('rimraf');
 const chalk = require('chalk');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const [folderName] = yargs.argv._;
 
@@ -21,11 +22,13 @@ module.exports = {
 
   output: {
     path: path.join(__dirname, 'dist', folderName),
-    filename: 'bundle.js',
-    publicPath: '/dist/'
+    filename: 'bundle.js'
   },
 
   plugins: [
+    new HtmlWebpackPlugin({
+      template: './index.html'
+    }),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('production')
