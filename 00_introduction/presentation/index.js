@@ -35,9 +35,9 @@ const code = {
 };
 
 const images = {
-  // formidagon: require('../assets/formidable-logo.svg'),
-  eich: require('../assets/brendaneich.jpg'),
+  mosaic: require('../assets/NCSAMosaic.jpg'),
   andreessen: require('../assets/mark_andreessen.jpg'),
+  eich: require('../assets/brendaneich.jpg'),
   smoosh: require('../assets/smooshgate.png')
 };
 
@@ -111,6 +111,35 @@ export default class Presentation extends React.Component {
             </p>
           </Notes>
         </Slide>
+
+        <Slide>
+          <Image src={images.mosaic} />
+          <Text textAlign="right" textSize="16" textColor="#aaa">
+            Автор:{' '}
+            <Link
+              textColor="#333"
+              href="//ru.wikipedia.org/wiki/%D0%9D%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_%D1%86%D0%B5%D0%BD%D1%82%D1%80_%D1%81%D1%83%D0%BF%D0%B5%D1%80%D0%BA%D0%BE%D0%BC%D0%BF%D1%8C%D1%8E%D1%82%D0%B5%D1%80%D0%BD%D1%8B%D1%85_%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B9"
+              title="Национальный центр суперкомпьютерных приложений"
+            >
+              National Center for Supercomputing Applications
+            </Link>
+            <br />
+            (NCSA) - NCSA Image Archive (
+            <Link
+              textColor="#333"
+              rel="nofollow"
+              class="external free"
+              href="http://www.ncsa.uiuc.edu/News/Images"
+            >
+              http://www.ncsa.uiuc.edu/News/Images
+            </Link>
+            )<br />
+            <Link textColor="#333" href="https://ru.wikipedia.org/w/index.php?curid=1704032">
+              Добросовестное использование
+            </Link>
+          </Text>
+        </Slide>
+
         <Slide>
           <Layout>
             <Fill>
@@ -225,9 +254,19 @@ export default class Presentation extends React.Component {
           </Notes>
         </Slide>
 
+        <Slide>
+          <iframe
+            src="https://player.vimeo.com/video/208796657"
+            width="800"
+            height="600"
+            frameborder="0"
+            allowfullscreen
+          />
+        </Slide>
+
         <Slide bgColor="#eee">
           <BlockQuote fit>
-            <Text textSize="44" textAlign="justify">
+            <Text textSize="40" textAlign="justify">
               «Решение использовать готовый язык вместо изобретения своего никаким образом не
               зависело от меня. Установка, поступившая с самых верхов, звучала так: “Язык должен
               выглядеть как Java”. Это сразу исключило Perl, Python и Tcl вместе со Scheme. […] Я не
