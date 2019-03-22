@@ -57,8 +57,3 @@ Building the dist version of the project is as easy as running
 npm run build -- %presentation_name%
 ```
 
-[WIP] If you want to deploy the slideshow to surge, run
-
-```sh
-npm run deploy
-```
