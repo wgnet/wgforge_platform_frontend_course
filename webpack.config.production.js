@@ -14,14 +14,16 @@ if (!folderName) {
   process.exit(1);
 }
 
-rimraf.sync(`dist/${folderName}`);
+const outFolderName = 'docs';
+
+rimraf.sync(`${outFolderName}/${folderName}`);
 
 module.exports = {
   mode: 'production',
   entry: ['@babel/polyfill', './index'],
 
   output: {
-    path: path.join(__dirname, 'dist', folderName),
+    path: path.join(__dirname, outFolderName, folderName),
     filename: 'bundle.js'
   },
 
