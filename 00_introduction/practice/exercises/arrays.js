@@ -15,7 +15,7 @@ first element is diffrence between maximum and minimum of passed array
 last element is sum of minimum and maximum
 and passed array in center
 [1, 2, 3] yields [2, 1, 2, 3, 4]
-[5, 2, 14] yields [12, 5, 2, 14, 19]
+[5, 2, 14] yields [12, 5, 2, 14, 16]
 */
 export function addFirstAndLast(numbers) {
   // YOUR CODE HERE
