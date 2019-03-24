@@ -6,7 +6,14 @@ Example:
 [1, 2, 3], x => x + 1  yields [2, 3 ,4]
 */
 export function map(array, func) {
-  // YOUR CODE HERE
+  let resultArray;
+  let index = 0;
+  array.forEach(element => {
+    resultArray.push(func(element, index, array));
+    index++;
+  });
+   return resultArray;
+
 }
 
 /*
@@ -19,7 +26,7 @@ returns new array with elements matched to filter
 
 */
 export function filter(array, fn) {
-  // YOUR CODE HERE
+
 }
 
 /*
