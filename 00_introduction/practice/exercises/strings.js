@@ -2,7 +2,11 @@
 write a function's body that concat all passed strings to one and returns it
 */
 export function concat(...strings) {
-  // YOUR CODE HERE
+  let resultString='';
+  for (let i=0 ; i<arguments.length; i++) {
+    resultString += arguments[i];
+  }
+  return(resultString);
 }
 
 /*
@@ -15,7 +19,11 @@ Example:
 'test' -> 'ts'
 */
 export function oddElements(string) {
-  // YOUR CODE HERE
+  let stringWithOddLetters = '';
+  for(let i = 0; i < string.length; i = i + 2){
+    stringWithOddLetters += string[i];
+  }
+  return stringWithOddLetters;
 }
 
 /*
@@ -29,5 +37,5 @@ Example:
 Note: String has .split(separator) method where seprator is another string
 */
 export function wordsCount(string) {
-  // YOUR CODE HERE
+  return string.split(' ').length;
 }
