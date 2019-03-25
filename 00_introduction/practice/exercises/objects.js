@@ -11,7 +11,32 @@ Example:
 }
 */
 export function collectByFirstLetter(...words) {
-  // YOUR CODE HERE
+  let firstLetterArray = new Array(0);
+
+  words.forEach(word => {
+    firstLetterArray.push(word[0]);
+  });
+  let obj = {};
+  firstLetterArray.forEach( letter => {
+    obj[letter] = true;
+  });
+   firstLetterArray = Object.keys(obj);
+   obj = {};
+   firstLetterArray.forEach(letter =>{
+     obj[`'${letter}'`] = getWordByLetter(letter);
+   });
+
+  function getWordByLetter(letter){
+     let wordsArray = new Array(0);
+     words.forEach(word => {
+       if (word[0] === letter){
+         wordsArray.push(`'${word}'`);
+       }
+     });
+     wordsArray.sort((word1, word2) => word1.localeCompare(word2));
+     return wordsArray;
+  }
+  return obj;
 }
 
 /*
@@ -23,7 +48,16 @@ Example:
 ({name: 'John', age: 42}, 'name') yields {name: 'John'}
 */
 export function only(obj, ...keys) {
-  // YOUR CODE HERE
+  const currentObj = {};
+  if(keys){
+    keys.forEach(key => {
+      if(obj[key] !== undefined){
+        currentObj[key] = obj[key];
+      }
+    });
+  }
+
+  return currentObj;
 }
 
 /*
@@ -44,7 +78,23 @@ Example:
 '' yields {}
 */
 export function wordsCount(text) {
-  // YOUR CODE HERE
+  let wordsCountObject = {};
+  if(text){
+  let wordsArray = text.split(/\s|,|\.|!|\?/).filter(element => {
+    return element !== "";
+  });
+    wordsArray = wordsArray.map( word => {
+    return word.toLowerCase();
+  });
+  let obj = {};
+  wordsArray.forEach( word => {
+    obj[word] = true;
+  });
+
+  Object.keys(obj).forEach(word => {
+    wordsCountObject[word] = wordsArray.filter(wordFromArray => wordFromArray === word).length;
+  });}
+  return wordsCountObject;
 }
 
 /*
@@ -62,5 +112,9 @@ user.isWeakPassword() === false
 */
 
 export function createUser(login, password) {
-  // YOUR CODE HERE
+  let user = {login: login, password: password};
+  user. isWeakPassword = function () {
+    return user.password === user.password.toUpperCase() || user.password === user.password.toLowerCase();
+  };
+  return user;
 }

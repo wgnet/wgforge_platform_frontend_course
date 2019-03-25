@@ -51,11 +51,12 @@ gen() -> 5
 ...
 */
 export function fibGenerator() {
-  let i = -1;
-  let fib;
+  let i = 0;
+  let fib = new Array(1);
   return function getFibNumber(){
+    i === 0? fib.fill(0) : i === 1? fib[i] = 1:fib[i] = fib[i-1] + fib[i-2];
     i++;
-    return i === 0? fib[i]=0 : i === 1? fib[i]=1: fib[i] = fib[i-1] + fib[i-2];
+    return fib[i-1];
   };
 }
 
@@ -73,5 +74,5 @@ sumTwoAndFour() // 6
 Note: function has a length property which shows how many arguments it receives
 */
 export function partial(fn, ...args) {
-
+  return fn.bind(undefined, ...args);
 }

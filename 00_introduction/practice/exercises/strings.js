@@ -37,5 +37,5 @@ Example:
 Note: String has .split(separator) method where seprator is another string
 */
 export function wordsCount(string) {
-  return string.split(' ').length;
+  return string.length ? string.split(' ').length : 0;
 }

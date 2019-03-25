@@ -10,12 +10,9 @@ export function matchEnds(words) {
   words.forEach(word => {
     if(word.length >= 2 && word[0] === word[word.length - 1]){
       numberOfSuitableWords++;
-      if(word === words[words.length - 1]){
-        return numberOfSuitableWords;
-      }
     }
   });
-  return 0;
+  return numberOfSuitableWords;
 }
 
 /*
@@ -27,11 +24,7 @@ and passed array in center
 [5, 2, 14] yields [12, 5, 2, 14, 16]
 */
 export function addFirstAndLast(numbers) {
-  let modifiedArray=[];
-  modifiedArray[0] = Math.max.apply(null, numbers) - Math.min.apply(null, numbers);
-  modifiedArray.concat(numbers);
-  modifiedArray[modifiedArray.length] = Math.max.apply(null, numbers) + Math.min.apply(null, numbers);
-  return modifiedArray;
+  return new Array(1).fill(Math.max.apply(null, numbers) - Math.min.apply(null, numbers)).concat(numbers).concat(Math.max.apply(null, numbers) + Math.min.apply(null, numbers));
 }
 
 /*
@@ -53,8 +46,7 @@ e.g. [[1, 7], [1, 3], [3, 4, 5], [2, 2]] yields
 [[2, 2], [1, 3], [3, 4, 5], [1, 7]]
 */
 export function sortByLast(nestedArrays) {
-  const sortedArray = nestedArrays;
-  return sortedArray.sort((subArray1, subArray2) => {
+  return nestedArrays.sort((subArray1, subArray2) => {
     return subArray1[subArray1.length-1] < subArray2[subArray2.length-1] ? -1 : subArray1[subArray1.length-1] > subArray2[subArray2.length-1] ? 1 : 0;
   });
 
