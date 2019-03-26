@@ -89,10 +89,15 @@
     }
   },
   "lint-staged": {
-    "*.js": [
-      "prettier --write",
-      "git add"
-    ],
-    "*.{js,md}": "yaspeller-ci"
+    "linters": {
+      "*.js": [
+        "prettier --write",
+        "git add"
+      ],
+      "*.{js,md}": "yaspeller-ci"
+    },
+    "ignore": [
+      "docs/**/*.js"
+    ]
   }
 }
