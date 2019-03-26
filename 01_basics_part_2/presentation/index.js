@@ -116,22 +116,6 @@ export default class Presentation extends React.Component {
               </Fill>
             </Appear>
           </Layout>
-
-          <Notes>
-            <div />
-
-            <div>Арифметические – + ; - ; {'/'} ; * ; % ; **</div>
-            <div>
-              Реляционные операторы, возвращает Boolean
-              <ul>
-                <li>in определяет, содержит ли объект указанное свойство</li>
-                <li>
-                  instanceof определяет, является ли объект экземпляром потомком Prototype (или
-                  экземпляром) другого объекта
-                </li>
-              </ul>
-            </div>
-          </Notes>
         </Slide>
 
         <Slide>
@@ -145,6 +129,9 @@ export default class Presentation extends React.Component {
             </ListItem>
             <ListItem>
               <Code>-y</Code>
+            </ListItem>
+            <ListItem>
+              <Code>~10</Code>
             </ListItem>
             <ListItem>
               <Code>!true</Code>
@@ -169,7 +156,7 @@ export default class Presentation extends React.Component {
             Унарные
             <ul>
               <li>+ (-) преобразует в Number (меняет знак)</li>
-              <li>~ побитовое NOT</li>
+              <li>~ побитовое NOT (только Numbers)</li>
               <li>! логическое NOT</li>
               <li>delete удаляет свойство из объекта</li>
               <li>void отбрасывает возвращаемое значение</li>
@@ -210,8 +197,7 @@ export default class Presentation extends React.Component {
               Операторы равенства
               <List>
                 <ListItem>
-                  <Code>{'='}</Code>&nbsp;<Code>{'!='}</Code>&nbsp;<Code>{'==='}</Code>&nbsp;
-                  <Code>{'!==='}</Code>
+                  <Code>{'='}</Code>&nbsp;<Code>{'==/!='}</Code>&nbsp;<Code>{'===/!=='}</Code>
                 </ListItem>
               </List>
             </ListItem>
@@ -235,6 +221,21 @@ export default class Presentation extends React.Component {
               </List>
             </ListItem>
           </List>
+
+          <Notes>
+            <div>Арифметические – + ; - ; {'/'} ; * ; % ; **</div>
+            <div>
+              Реляционные операторы, возвращает Boolean
+              <ul>
+                <li>in определяет, содержит ли объект указанное свойство</li>
+                <li>
+                  instanceof определяет, является ли объект экземпляром потомком Prototype (или
+                  экземпляром) другого объекта
+                </li>
+              </ul>
+            </div>
+            <div>побитовые работают с 32 числами</div>
+          </Notes>
         </Slide>
 
         <Slide>
@@ -265,7 +266,12 @@ export default class Presentation extends React.Component {
             </div>
           </Appear>
 
-          <Notes>// TODO</Notes>
+          <Notes>
+            запятая - можем перечислять выражения, они выполняются, возвращается результат
+            последнего
+            <br />
+            часто можно встретить в минимизированном коде для уменьшения размера
+          </Notes>
         </Slide>
 
         <Slide>
@@ -331,34 +337,34 @@ export default class Presentation extends React.Component {
             <div>
               <Text>null</Text>
               <div>
-                <Code>null &gt; 0;</Code>&nbsp;
+                <Code textSize={30}>null &gt; 0;</Code>&nbsp;
                 <Appear>
-                  <Code>// false</Code>
+                  <Code textSize={30}>// false</Code>
                 </Appear>
               </div>
               <br />
               <Appear>
                 <div>
-                  <Code>null &lt; 0;</Code>&nbsp;
+                  <Code textSize={30}>null &lt; 0;</Code>&nbsp;
                   <Appear>
-                    <Code>// false</Code>
+                    <Code textSize={30}>// false</Code>
                   </Appear>
                 </div>
               </Appear>
               <br />
               <Appear>
                 <div>
-                  <Code>null == 0;</Code>&nbsp;
+                  <Code textSize={30}>null == 0;</Code>&nbsp;
                   <Appear>
-                    <Code>// false</Code>
+                    <Code textSize={30}>// false</Code>
                   </Appear>
                 </div>
               </Appear>
               <br />
               <Appear>
                 <div>
-                  <Code>null &gt;= 0; null &lt;= 0;</Code>&nbsp;
-                  <Code>// true 😳</Code>
+                  <Code textSize={30}>null &gt;= 0; null &lt;= 0;</Code>&nbsp;
+                  <Code textSize={30}>// true 😳</Code>
                 </div>
               </Appear>
             </div>
@@ -372,31 +378,19 @@ export default class Presentation extends React.Component {
 
           <Appear>
             <div>
-              <Code>undefined &gt; 0; // false</Code>
+              <Code textSize={30}>undefined &gt; 0; undefined &lt; 0; undefined == 0;// false</Code>
             </div>
           </Appear>
           <br />
           <Appear>
             <div>
-              <Code>undefined &lt; 0; // false</Code>
-            </div>
-          </Appear>
-          <br />
-          <Appear>
-            <div>
-              <Code>undefined == 0; // false</Code>
-            </div>
-          </Appear>
-          <br />
-          <Appear>
-            <div>
-              <Code>undefined &gt;= 0; undefined &lt;= 0; // false 🙂</Code>
+              <Code textSize={30}>undefined &gt;= 0; undefined &lt;= 0; // false 🙂</Code>
             </div>
           </Appear>
 
           <Appear>
             <div>
-              <Code>undefined == null; // true 😫</Code>
+              <Code textSize={30}>undefined == null; // true 😫</Code>
             </div>
           </Appear>
 
