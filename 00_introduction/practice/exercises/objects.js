@@ -23,14 +23,14 @@ export function collectByFirstLetter(...words) {
    firstLetterArray = Object.keys(obj);
    obj = {};
    firstLetterArray.forEach(letter =>{
-     obj[`'${letter}'`] = getWordByLetter(letter);
+     obj[letter] = getWordByLetter(letter);
    });
 
   function getWordByLetter(letter){
      let wordsArray = new Array(0);
      words.forEach(word => {
        if (word[0] === letter){
-         wordsArray.push(`'${word}'`);
+         wordsArray.push(word);
        }
      });
      wordsArray.sort((word1, word2) => word1.localeCompare(word2));
