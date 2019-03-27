@@ -16,5 +16,9 @@ test('HashTable', t => {
   hashTable.remove('foo');
   t.equal(hashTable.get('foo'), undefined, 'remove works');
 
+  t.equal(typeof hashTable.hashKey('cool test string'), 'number' , 'hashKey returns a number');
+  t.notEqual(hashTable.hashKey('cool test string'), NaN , 'hashKey doesnt return NaN');
+  t.notEqual(hashTable.hashKey('cool test string'), undefined , 'hashKey doesnt return undefined');
+
   t.end();
 });
