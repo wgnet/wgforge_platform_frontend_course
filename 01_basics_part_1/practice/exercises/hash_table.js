@@ -10,7 +10,8 @@ export default class HashTable {
    */
   constructor() {
     this.memory = [];
-
+    this.table={};
+    this.memory.push(this.table);
   }
 
   /**
@@ -22,7 +23,7 @@ export default class HashTable {
 
   hashKey(key) {
     for(let i = 0; i < this.memory.length; i++){
-      if(this.memory[i][0] === key){
+      if(Object.keys(this.memory)[i] === key){
         return i;
       }
     }
@@ -34,10 +35,7 @@ export default class HashTable {
    */
 
   get(key) {
-    const getRightSet = this.memory.filter(element => element[0] === key);
-    if(getRightSet && getRightSet.length > 0){
-      return getRightSet[0][1];
-    }
+    return this.table[key];
   }
 
   /**
@@ -45,7 +43,7 @@ export default class HashTable {
    */
 
   set(key, value) {
-    this.memory.push([key,value]);
+    this.table[key] = value;
   }
 
   /**
@@ -54,12 +52,6 @@ export default class HashTable {
    */
 
   remove(key) {
-    if(this.memory.length > 0){
-      for(let i = 0; i < this.memory.length; i++){
-        if(this.memory[i][0] === key){
-          this.memory.splice(i,1);
-        }
-      }
-    }
+    delete this.table[key];
   }
 }

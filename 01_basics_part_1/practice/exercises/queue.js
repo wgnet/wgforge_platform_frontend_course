@@ -32,10 +32,8 @@ export default class Queue {
 
   dequeue() {
     if(this.length > 0){
-      const firstElement = this.list[0];
-      this.list.splice(0,1);
       this.length--;
-      return firstElement;
+      return this.list.splice(0,1)[0];
     }
   }
 
