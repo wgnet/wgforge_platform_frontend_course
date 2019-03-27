@@ -1,0 +1,3 @@
+let foo;
+console.log( foo ); // "undefined"
+foo.toString(); // Uncaught TypeError: Cannot read property 'toString' of undefined
