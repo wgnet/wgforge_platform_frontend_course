@@ -1,0 +1,11 @@
+switch (условие) {
+    case значение_1:
+        break;
+    case значение_2:
+        break;
+    case значение_3:
+        break;
+    default:
+        break
+}
+

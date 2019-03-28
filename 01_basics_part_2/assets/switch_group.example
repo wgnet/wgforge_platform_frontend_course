@@ -1,0 +1,23 @@
+import { detect } from 'detect-browser';
+const browser = detect();
+
+// handle the case where we don't detect the browser
+switch (browser && browser.name) {
+  case 'chrome':
+  case 'firefox':
+  case 'opera':
+    console.log('supported');
+    break;
+
+  case 'yabrowser':
+  case 'edge':
+    console.log('kinda ok');
+    break;
+
+  case 'ie':
+    console.log('deprecated');
+    break;
+
+  default:
+    console.log('not supported');
+}
