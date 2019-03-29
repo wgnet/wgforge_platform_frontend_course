@@ -46,7 +46,6 @@ export default class HashTable {
 
   set(key, value) {
     const hash = this.hashKey(key);
-    console.log(this.memory);
     if(this.memory[hash]){
       let collision = this.memory[hash].find((currentElement) => {
         return currentElement[0] === key;
@@ -54,7 +53,6 @@ export default class HashTable {
 
      if(collision){
         collision[1] = value;
-       console.log(this.memory);
      }
      else{
        this.memory[hash].push([key, value]);
