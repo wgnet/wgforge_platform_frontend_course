@@ -12,7 +12,8 @@ test('HashTable', t => {
   t.equal(hashTable.hashKey('monkey'), monkeyHash, 'hashKey is still idempotent');
 
   hashTable.set('foo', 'bar');
-  t.equal(hashTable.get('foo'), 'bar', 'set/get works properly');
+  hashTable.set('foo', 'barррр');
+  t.equal(hashTable.get('foo'), 'barррр', 'set/get works properly and works with collisions');
   hashTable.remove('foo');
   t.equal(hashTable.get('foo'), undefined, 'remove works');
 

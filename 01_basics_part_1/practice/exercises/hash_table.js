@@ -32,7 +32,7 @@ export default class HashTable {
    */
 
   get(key) {
-    if(this.memory[this.hashKey(key)]){
+    if(this.memory[this.hashKey(key)] && this.memory[this.hashKey(key)].length){
       return this.memory[this.hashKey(key)].find((currentElement) => {
         return currentElement[0] === key;
       })[1];
@@ -45,26 +45,24 @@ export default class HashTable {
    */
 
   set(key, value) {
-    if(this.memory[this.hashKey(key)]){
-      let collision = this.memory[this.hashKey(key)].find((currentElement) => {
+    const hash = this.hashKey(key);
+    console.log(this.memory);
+    if(this.memory[hash]){
+      let collision = this.memory[hash].find((currentElement) => {
         return currentElement[0] === key;
       });
 
      if(collision){
-        for(let i = 0; i < this.memory[this.hashKey(key)].length; i++){
-          if(this.memory[this.hashKey(key)][i][0] === key){
-            this.memory[this.hashKey(key)][i] = [key, value];
-          }
-        }
+        collision[1] = value;
+       console.log(this.memory);
      }
      else{
-       this.memory[this.hashKey(key)].push([key, value]);
+       this.memory[hash].push([key, value]);
      }
 
     }
     else{
-      this.memory[this.hashKey(key)] =[];
-      this.memory[this.hashKey(key)].push([key, value]);
+      this.memory[hash] =[[key, value]];
     }
   }
 
@@ -74,15 +72,12 @@ export default class HashTable {
    */
 
   remove(key) {
-    if(this.memory[this.hashKey(key)].length > 1){
+    if(this.memory[this.hashKey(key)] && this.memory[this.hashKey(key)].length){
       for(let i = 0; i < this.memory[this.hashKey(key)].length; i++){
         if(this.memory[this.hashKey(key)][i][0] === key){
           this.memory[this.hashKey(key)].splice(i, 1);
         }
       }
-    }
-    else{
-      this.memory.splice(this.hashKey(key), 1);
     }
   }
 }
