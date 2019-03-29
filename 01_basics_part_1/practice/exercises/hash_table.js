@@ -21,7 +21,7 @@ export default class HashTable {
 
   hashKey(key) {
     let sum = 0;
-    for(let i = 0; i < key.length; i++){
+    for (let i = 0; i < key.length; i++) {
       sum += key.charCodeAt(i);
     }
     return sum % 37;
@@ -32,12 +32,12 @@ export default class HashTable {
    */
 
   get(key) {
-    if(this.memory[this.hashKey(key)] && this.memory[this.hashKey(key)].length){
-      return this.memory[this.hashKey(key)].find((currentElement) => {
+    if (this.memory[this.hashKey(key)] && this.memory[this.hashKey(key)].length) {
+      return this.memory[this.hashKey(key)].find(currentElement => {
         return currentElement[0] === key;
       })[1];
     }
-   return undefined;
+    return undefined;
   }
 
   /**
@@ -46,21 +46,18 @@ export default class HashTable {
 
   set(key, value) {
     const hash = this.hashKey(key);
-    if(this.memory[hash]){
-      const collision = this.memory[hash].find((currentElement) => {
+    if (this.memory[hash]) {
+      const collision = this.memory[hash].find(currentElement => {
         return currentElement[0] === key;
       });
 
-     if(collision){
+      if (collision) {
         collision[1] = value;
-     }
-     else{
-       this.memory[hash].push([key, value]);
-     }
-
-    }
-    else{
-      this.memory[hash] =[[key, value]];
+      } else {
+        this.memory[hash].push([key, value]);
+      }
+    } else {
+      this.memory[hash] = [[key, value]];
     }
   }
 
@@ -70,10 +67,10 @@ export default class HashTable {
    */
 
   remove(key) {
-    let hash = this.hashKey(key);
-    if(this.memory[hash] && this.memory[hash].length){
-      for(let i = 0; i < this.memory[hash].length; i++){
-        if(this.memory[hash][i][0] === key){
+    const hash = this.hashKey(key);
+    if (this.memory[hash] && this.memory[hash].length) {
+      for (let i = 0; i < this.memory[hash].length; i++) {
+        if (this.memory[hash][i][0] === key) {
           this.memory[hash].splice(i, 1);
         }
       }
