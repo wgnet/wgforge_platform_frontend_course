@@ -10,8 +10,6 @@ export default class HashTable {
    */
   constructor() {
     this.memory = [];
-    this.table={};
-    this.memory.push(this.table);
   }
 
   /**
@@ -22,12 +20,11 @@ export default class HashTable {
    */
 
   hashKey(key) {
-    for(let i = 0; i < this.memory.length; i++){
-      if(Object.keys(this.memory)[i] === key){
-        return i;
-      }
+    let sum = 0;
+    for(let i = 0; i < key.length; i++){
+      sum += key.charCodeAt(i);
     }
-    return null;
+    return sum % 37;
   }
 
   /**
@@ -35,7 +32,12 @@ export default class HashTable {
    */
 
   get(key) {
-    return this.table[key];
+    if(this.memory[this.hashKey(key)]){
+      return this.memory[this.hashKey(key)].find((currentElement) => {
+        return currentElement[0] === key;
+      })[1];
+    }
+   return undefined;
   }
 
   /**
@@ -43,7 +45,27 @@ export default class HashTable {
    */
 
   set(key, value) {
-    this.table[key] = value;
+    if(this.memory[this.hashKey(key)]){
+      let collision = this.memory[this.hashKey(key)].find((currentElement) => {
+        return currentElement[0] === key;
+      });
+
+     if(collision){
+        for(let i = 0; i < this.memory[this.hashKey(key)].length; i++){
+          if(this.memory[this.hashKey(key)][i][0] === key){
+            this.memory[this.hashKey(key)][i] = [key, value];
+          }
+        }
+     }
+     else{
+       this.memory[this.hashKey(key)].push([key, value]);
+     }
+
+    }
+    else{
+      this.memory[this.hashKey(key)] =[];
+      this.memory[this.hashKey(key)].push([key, value]);
+    }
   }
 
   /**
@@ -52,6 +74,15 @@ export default class HashTable {
    */
 
   remove(key) {
-    delete this.table[key];
+    if(this.memory[this.hashKey(key)].length > 1){
+      for(let i = 0; i < this.memory[this.hashKey(key)].length; i++){
+        if(this.memory[this.hashKey(key)][i][0] === key){
+          this.memory[this.hashKey(key)].splice(i, 1);
+        }
+      }
+    }
+    else{
+      this.memory.splice(this.hashKey(key), 1);
+    }
   }
 }
