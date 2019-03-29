@@ -47,7 +47,7 @@ export default class HashTable {
   set(key, value) {
     const hash = this.hashKey(key);
     if(this.memory[hash]){
-      let collision = this.memory[hash].find((currentElement) => {
+      const collision = this.memory[hash].find((currentElement) => {
         return currentElement[0] === key;
       });
 
@@ -70,10 +70,11 @@ export default class HashTable {
    */
 
   remove(key) {
-    if(this.memory[this.hashKey(key)] && this.memory[this.hashKey(key)].length){
-      for(let i = 0; i < this.memory[this.hashKey(key)].length; i++){
-        if(this.memory[this.hashKey(key)][i][0] === key){
-          this.memory[this.hashKey(key)].splice(i, 1);
+    let hash = this.hashKey(key);
+    if(this.memory[hash] && this.memory[hash].length){
+      for(let i = 0; i < this.memory[hash].length; i++){
+        if(this.memory[hash][i][0] === key){
+          this.memory[hash].splice(i, 1);
         }
       }
     }
