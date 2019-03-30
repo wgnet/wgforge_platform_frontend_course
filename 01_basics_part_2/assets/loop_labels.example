@@ -1,0 +1,7 @@
+first: for (var i = 0; i < 3; i++) {
+  second: for (var j = 0; j < 3; j++) {
+    if (i === 1) continue first;
+    if (j === 1) break second;
+    console.log(`${i} & ${j}`);
+  }
+}

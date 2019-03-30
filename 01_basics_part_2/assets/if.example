@@ -1,0 +1,19 @@
+if (condition) {
+    doSomething();
+} else {
+    doAnother();
+}
+
+if (condition) doOnlyOneStuff();
+
+if (condition) {
+    someFunction();
+} else if (anotherCondition) {
+    anotherFunction();
+}
+
+if (condition) {} else {
+    if (anotherCondition) {
+
+    }
+}
