@@ -1,0 +1,13 @@
+let user = {
+  firstName: "Василий",
+  surname: "Петров",
+  patronym: "Иванович"
+};
+
+function showFullName(firstPart, lastPart) {
+  console.log( this[firstPart] + " " + this[lastPart] );
+}
+
+// f.call(контекст, аргумент1, аргумент2, ...)
+showFullName.call(user, 'firstName', 'surname') // "Василий Петров"
+showFullName.call(user, 'firstName', 'patronym') // "Василий Иванович"

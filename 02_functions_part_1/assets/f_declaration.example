@@ -1,0 +1,17 @@
+// Может быть вызванна до объявления
+helloForge(); // "Hello Forge !"
+
+function helloForge() {
+    console.log('Hello Forge !');
+}
+
+let isPlusExpression = true;
+
+calcExpression(5, 2); // "TypeError: calcExpression is not a function
+
+// Функция формуриется в зависимости от условия
+if (isPlusExpression) {
+    function calcExpression(x, y) {
+        return x + y
+    }
+}

@@ -1,0 +1,21 @@
+// До появления оставшихся параметров использовалось следующее:
+function forge(a, b){
+
+  // "TypeError: arguments.forEach is not a function
+  arguments.forEach(arg => {
+    console.log(arg)
+  })
+
+  // так как arguments не настоящий массив его нужно преврать в массив
+  const args = Array.prototype.slice.call(arguments);
+  // или так сonst args = [].slice.call(arguments);
+
+}
+
+// с rest параметрами
+function forge(a, b, ...args) {
+  // оставшиеся параметры это массив
+  args.forEach(arg => {
+    console.log(arg)
+  })
+}

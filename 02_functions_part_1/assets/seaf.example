@@ -1,0 +1,19 @@
+(function () {
+   console.log('hi')
+}());
+
+// А вот другой вариант, который Крокфорд, называет "собачьи яйца" (dog balls).
+
+(function () {
+   console.log('dog balls')
+})();
+
+// Получение результата выполнения SEAF
+const Jquery = (function () {
+       return 'jquery'
+}());
+
+// Передача параметров
+(function (w, $) {
+   console.log(window, $)
+}(window, Jquery));
