@@ -15,12 +15,24 @@
  * с сообщением 'argument should be an array'.
  */
 
-function smoosh() {
-  // your code here
+function smoosh(array) {
+  if (Array.isArray(array)) {
+    return JSON.parse(`[${JSON.stringify(array).replace(/[\[\]]/g, '')}]`);
+  }
+
+  throw new Error('argument should be an array');
 }
 
-function squeeze() {
-  // your code here
+function squeeze(array) {
+  if (Array.isArray(array)) {
+    const copiedArray = [...array];
+    array.splice(0, array.length);
+    [].push.apply(array, smoosh(copiedArray));
+
+    return array;
+  }
+
+  throw new Error('argument should be an array');
 }
 
 export { smoosh, squeeze };
