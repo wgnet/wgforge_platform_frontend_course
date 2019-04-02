@@ -1,0 +1,25 @@
+let i = 10;
+do {
+    console.log(i--); // тело цикла
+} while (/* условие */ i > 0);
+// бесконечный цикл
+do { /* exactly nothing */ } while (true)
+
+const gen = fibGenerator();
+let iter = 1;
+do {
+    let fib = gen();
+    if (fib === 0) continue;
+
+    if (fib % 15 === 0) {
+        console.log(`FizzBuzz: ${fib}`);
+        break;
+    }
+    if (fib % 3 === 0) {
+        console.log('Fizz'); continue;
+    }
+    if (fib % 5 === 0) {
+        console.log('Bazz'); continue;
+    }
+} while (iter++ < 100)
+console.log(iter);

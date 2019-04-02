@@ -1,0 +1,21 @@
+let i = 10;
+while (/* условие */ i > 0) {
+    // тело цикла
+    console.log(i--);
+}
+// бесконечный цикл
+while (true) {
+    // 😴
+}
+
+const gen = fibGenerator();
+const userValue = 12;
+const iter = 0;
+while (iter < 1000) {
+    let fib = gen();
+    if (fib % userValue === 0) {
+        alert(`Found: ${fib}`);
+        break;
+    }
+    console.info(`Iteration ${iter++}`);
+}
