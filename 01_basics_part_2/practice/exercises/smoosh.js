@@ -17,7 +17,11 @@
 
 function smoosh(array) {
   if (Array.isArray(array)) {
-    return JSON.parse(`[${JSON.stringify(array).replace(/[\[\]]/g, '')}]`);
+    return array.reduce(function(prevElement, currentElement) {
+      return prevElement.concat(
+        Array.isArray(currentElement) ? smoosh(currentElement) : currentElement
+      );
+    }, []);
   }
 
   throw new Error('argument should be an array');
