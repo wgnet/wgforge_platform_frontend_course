@@ -14,13 +14,21 @@
  * В случае, если на вход передан не массив функция должна выбросить исключение
  * с сообщением 'argument should be an array'.
  */
-
-function smoosh() {
-  // your code here
+function smoosh(arr) {
+  if (!(arr instanceof Array)) {
+    throw {message: 'argument should be an array'};
+  }
+  return arr.reduce((acc, val) => Array.isArray(val) ? acc.concat(smoosh(val)) : acc.concat(val), [])
 }
 
-function squeeze() {
-  // your code here
+function squeeze(arr) {
+  let smooshArr = smoosh(arr);
+  arr.length = 0;
+
+  smooshArr.forEach(e => {
+    arr.push(e);
+  });
+  return arr;
 }
 
-export { smoosh, squeeze };
+export {smoosh, squeeze};

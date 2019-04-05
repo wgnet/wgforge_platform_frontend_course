@@ -5,6 +5,10 @@
  * выполнение и вернуть undefined.
  */
 
-export default function sleep() {
-  // your code here
+export default function sleep(time) {
+  if (typeof time !== 'number' || time % 1 !== 0) {
+    return undefined
+  }
+  let finishTime = new Date().getTime() + time * 1000;
+  while (new Date().getTime() < finishTime) {}
 }

@@ -584,13 +584,6 @@ export default class Presentation extends React.Component {
         </Slide>
         <Slide>
           <Heading size={6} lineHeight={1} textColor="secondary">
-            Реализация функции getTag
-          </Heading>
-          <CodePane theme={CODE_THEME} textSize={16} lang="javascript" source={code._getTag} />
-          <Notes />
-        </Slide>
-        <Slide>
-          <Heading size={6} lineHeight={1} textColor="secondary">
             Объект Date
           </Heading>
           <List>

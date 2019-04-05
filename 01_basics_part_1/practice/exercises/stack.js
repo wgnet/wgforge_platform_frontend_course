@@ -23,7 +23,8 @@ export default class Stack {
    */
 
   push(value) {
-    // your code here
+    this.length++;
+    this.list.push(value);
   }
 
   /**
@@ -31,7 +32,8 @@ export default class Stack {
    */
 
   pop() {
-    // your code here
+    this.length--;
+    return this.list.pop();
   }
 
   /**
@@ -39,6 +41,6 @@ export default class Stack {
    */
 
   peek() {
-    // your code here
+    return this.list[this.length - 1];
   }
 }

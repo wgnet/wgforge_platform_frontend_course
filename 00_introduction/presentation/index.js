@@ -10,6 +10,7 @@ import {
   CodePane,
   Deck,
   Fill,
+  Fit,
   Heading,
   Image,
   Layout,
@@ -17,6 +18,7 @@ import {
   List,
   ListItem,
   Notes,
+  Quote,
   S,
   Slide,
   Text
