@@ -1,0 +1,15 @@
+"use strict";
+
+window.students = [{ name: 'windowUnit1' }, { name: 'windowUnit2' }];
+
+const forge = {
+    students: [{ name: 'unit1' }, { name: 'unit2' }],
+    printFirstUnit: function () {
+        console.log(this.students[0].name)
+    }
+}
+
+forge.printFirstUnit(); // this - forge;  name - 'unit1'
+
+const printFirstUnitCopy = forge.printFirstUnit.bind(this);
+printFirstUnitCopy(); // this - window; name - 'windowUnit1'

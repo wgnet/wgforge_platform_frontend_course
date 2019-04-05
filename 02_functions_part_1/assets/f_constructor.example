@@ -1,0 +1,7 @@
+// new Function([arg1[, arg2[, ...argN]],] functionBody)
+
+// Создаём функцию, принимающую два аргумента, и возвращающую их сумму
+var adder = new Function('a', 'b', 'return a + b');
+
+// Вызываем функцию
+adder(2, 6); // 8
