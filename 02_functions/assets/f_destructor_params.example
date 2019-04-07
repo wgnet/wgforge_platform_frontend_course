@@ -1,0 +1,14 @@
+let styles = { width: '100px', height: '200px' };
+
+function customizeElement({ width, height }) {
+  console.log(width + ' ' + height); // 100px 200px
+}
+
+customizeElement(styles);
+
+// Можно определять значения по умолчанию
+function customizeElementWithDefaults({ width: '100px', height: '200px' }) {
+  console.log(width + ' ' + height); // 100px 200px
+}
+
+customizeElementWithDefaults({});

@@ -1,0 +1,14 @@
+var users = {
+  data: [
+      {name: 'John Smith'},
+      {name: 'Ellen Simons'}
+  ],
+
+   showFirst: function (event) {
+       console.log(this.data[0].name);
+   }
+}
+
+$('button').click(users.showFirst); // this.data is undefined
+
+$('button').click(users.showFirst.bind(users); // John Smith

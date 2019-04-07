@@ -1,0 +1,17 @@
+// НЕ Может быть вызванна до объявления
+helloForge(); // "Hello Forge !" // "ReferenceError: helloForge is not defined
+
+const helloForge = function () {
+    console.log('Hello Forge !');
+}
+
+// Named function expression
+const helloForge = function funcName (count = 1) {
+    console.log(`Hello Forge ${count}!`);
+
+    if (count < 10) {
+        funcName(count + 1) // рекурсия
+    }
+}
+
+helloForge()

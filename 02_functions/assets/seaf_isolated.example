@@ -1,0 +1,17 @@
+"use strict";
+
+// Обращение к переменной в SEAF
+let a = 1
+
+(function () {
+  a = 2 // ReferenceError: a is not defined
+}())
+
+
+// Обращение к переменной из SEAF
+(function () {
+  let b = 2
+  console.log(b)
+}())
+
+console.log(b) "ReferenceError: b is not defined

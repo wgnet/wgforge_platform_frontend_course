@@ -1,0 +1,3 @@
+func.call(context, arg1, arg2);
+// идентичен вызову
+func.apply(context, [arg1, arg2]);

@@ -1,0 +1,14 @@
+"use strict"
+function f1(){
+  return this;
+}
+
+f1() === undefined; // true
+
+
+// с function expression
+let f2 = function (){
+  return this;
+}
+
+f2() === undefined; // true

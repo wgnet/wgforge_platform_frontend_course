@@ -1,0 +1,12 @@
+function makeFunc() {
+  const name = "Forge";
+
+  function displayName() {
+    console.log(name);
+  }
+
+  return displayName;
+}
+
+const myFunc = makeFunc();
+myFunc();
