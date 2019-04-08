@@ -7,7 +7,7 @@ function customizeElement({ width, height }) {
 customizeElement(styles);
 
 // Можно определять значения по умолчанию
-function customizeElementWithDefaults({ width: '100px', height: '200px' }) {
+function customizeElementWithDefaults({ width = '100px', height = '200px' }) {
   console.log(width + ' ' + height); // 100px 200px
 }
 
