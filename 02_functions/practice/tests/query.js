@@ -147,7 +147,7 @@ test('query', t => {
     tt.end();
   });
 
-  t.test('sql escaping', tt => {
+  t.test('sql escaping', { skip: true }, tt => {
     const escapedQ1 = query('table', { escapeNames: true });
     const escapedQ2 = query({ escapeNames: true });
 
