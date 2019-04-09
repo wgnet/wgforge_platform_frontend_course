@@ -1,0 +1,20 @@
+function Forge (options = {}) {
+    this.defaultOptions = {
+        start: 1554293121
+    }
+
+    this.options = {
+        ...this.defaultOptions,
+        ...options
+    }
+
+    this.getStartDate = function () {
+        return new Date(this.options.start).toLocaleDateString()
+    }
+
+    this.getStartTime = function () {
+        return new Date(this.options.start).toLocaleTimeString()
+    }
+}
+
+new Forge({ start: 1554293000 }).getStartTime() // "2:44:53 AM"

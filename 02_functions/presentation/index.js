@@ -43,7 +43,11 @@ const code = {
   call: require('raw-loader!../assets/call.example'),
   apply: require('raw-loader!../assets/apply.example'),
   f_destructor_params: require('raw-loader!../assets/f_destructor_params.example'),
-  closures: require('raw-loader!../assets/closures.example')
+  closures: require('raw-loader!../assets/closures.example'),
+  f_constructor_vs_f_declaration: require('raw-loader!../assets/f_constructor_vs_f_declaration.example'),
+  f_object_creator: require('raw-loader!../assets/f_object_creator.example'),
+  arrow_functions: require('raw-loader!../assets/arrow_functions.example'),
+  arrow_functions_destruct: require('raw-loader!../assets/arrow_functions_destruct.example')
 };
 
 export default class Presentation extends React.Component {
@@ -257,6 +261,71 @@ export default class Presentation extends React.Component {
             Замыкания
           </Heading>
           <CodePane textSize={24} fit theme={CODE_THEME} source={code.closures} lang="javascript" />
+        </Slide>
+
+        <Slide>
+          <Heading size={6} caps lineHeight={1} textColor="secondary">
+            Пример еще одной особенности new Function
+          </Heading>
+          <CodePane
+            textSize={20}
+            fit
+            theme={CODE_THEME}
+            source={code.f_constructor_vs_f_declaration}
+            lang="javascript"
+          />
+        </Slide>
+
+        <Slide>
+          <Heading size={6} caps lineHeight={1} textColor="secondary">
+            Использование функций в качестве конструкторов объектов
+          </Heading>
+          <CodePane
+            textSize={20}
+            fit
+            theme={CODE_THEME}
+            source={code.f_object_creator}
+            lang="javascript"
+          />
+        </Slide>
+
+        <Slide>
+          <Heading size={6} caps lineHeight={1} textColor="secondary">
+            Arrow functions (стрелочные функции)
+          </Heading>
+          <List>
+            <ListItem>
+              Не имеют собственного объекта arguments (ссылаются на arguments из родительского
+              лексического окружения)
+            </ListItem>
+            <ListItem>Имеют контекст window при объявлении в глобальной области видимости</ListItem>
+          </List>
+        </Slide>
+
+        <Slide>
+          <Heading size={6} caps lineHeight={1} textColor="secondary">
+            Arrow functions - примеры
+          </Heading>
+          <CodePane
+            textSize={20}
+            fit
+            theme={CODE_THEME}
+            source={code.arrow_functions}
+            lang="javascript"
+          />
+        </Slide>
+
+        <Slide>
+          <Heading size={6} caps lineHeight={1} textColor="secondary">
+            Arrow functions - примеры
+          </Heading>
+          <CodePane
+            textSize={20}
+            fit
+            theme={CODE_THEME}
+            source={code.arrow_functions_destruct}
+            lang="javascript"
+          />
         </Slide>
 
         <QuestionsSlide />

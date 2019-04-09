@@ -1,0 +1,19 @@
+const elements = ['Hydrogen', 'Helium', 'Lithium', 'Beryllium'];
+
+elements.map(function(element) {
+  return element.length;
+}); // Это выражение вернет массив [8, 6, 7, 9]
+
+// Функцию выше можно записать как стрелочную функцию:
+elements.map((element) => {
+  return element.length;
+}); // [8, 6, 7, 9]
+
+// Если единственным оператором в выражении стрелочной функции является return,
+// можно удалить return и окружающие фигурные скобки
+elements.map(element => element.length); // [8, 6, 7, 9]
+
+// В данном случае, поскольку нам нужно только свойство length, мы можем использовать деструктуризированный параметр:
+// Обратите внимание, что строка `"length"` соответствует свойству, которое мы хотим получить,
+// в то время как `lengthFooBArX` это просто имя переменной, которую можно назвать как вы хотите
+elements.map(({ "length": lengthFooBArX }) => lengthFooBArX); // [8, 6, 7, 9]
