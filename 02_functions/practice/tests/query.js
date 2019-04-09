@@ -1,7 +1,7 @@
 /* eslint-disable max-statements */
 import test from 'tape-catch';
 
-import query from '../exercises/select';
+import query from '../exercises/query';
 
 const QUERY_METHODS = ['select', 'from', 'where', 'orWhere', 'toString'].sort();
 const WHERE_METHODS = ['equals', 'in', 'gt', 'gte', 'lt', 'lte', 'between', 'isNull', 'not'].sort();
