@@ -1,9 +1,10 @@
+/* eslint-disable max-statements */
 import test from 'tape-catch';
 
-import query from '../exercises/query';
+import query from '../exercises/select';
 
-const QUERY_METHODS = ['select', 'from', 'where', 'orWhere', 'toString'];
-const WHERE_METHODS = ['equals', 'in', 'gt', 'gte', 'lt', 'lte', 'between', 'isNull', 'not'];
+const QUERY_METHODS = ['select', 'from', 'where', 'orWhere', 'toString'].sort();
+const WHERE_METHODS = ['equals', 'in', 'gt', 'gte', 'lt', 'lte', 'between', 'isNull', 'not'].sort();
 
 test('query', t => {
   t.equal(typeof query, 'function');
@@ -14,16 +15,16 @@ test('query', t => {
 
   const methods = Object.keys(q);
 
-  t.deepEqual(methods, QUERY_METHODS, '`query` has proper methods');
+  t.deepEqual(methods.sort(), QUERY_METHODS, '`query` has proper methods');
+  for (const method of methods) {
+    t.equal(typeof q[method], 'function', `where.${method} is a function`);
+  }
 
   const whereStmt = q.where('id');
 
+  t.deepEqual(Object.keys(whereStmt).sort(), WHERE_METHODS, '`where` has proper methods');
   for (const whereMethod of WHERE_METHODS) {
     t.equal(typeof whereStmt[whereMethod], 'function', `where.${whereMethod} is a function`);
-  }
-
-  for (const method of methods) {
-    t.equal(typeof q[method], 'function', `where.${method} is a function`);
   }
 
   t.test('generated SQL', qt => {
@@ -122,6 +123,48 @@ test('query', t => {
         .not();
     }, "not() can't be called multiple times in a row");
     et.end();
+  });
+
+  t.test('return new objects', tt => {
+    const q1 = query();
+    const q2 = query();
+
+    tt.false(Object.is(q1, q2));
+
+    q1.select()
+      .from('user')
+      .where('id')
+      .equals(42);
+    q2.select('hex')
+      .from('colors')
+      .where('webname')
+      .not()
+      .equals('red');
+
+    tt.equal('' + q1, 'SELECT * FROM user WHERE id = 42;');
+    tt.equal(`${q2}`, "SELECT hex FROM colors WHERE NOT webname = 'red';");
+
+    tt.end();
+  });
+
+  t.test('sql escaping', tt => {
+    const escapedQ1 = query('table', { escapeNames: true });
+    const escapedQ2 = query({ escapeNames: true });
+
+    tt.false(Object.is(escapedQ1, escapedQ2));
+
+    escapedQ1.select('id', 'name');
+    escapedQ2.select('hex', 'hsla').from('colors');
+
+    tt.equal(`${escapedQ1}`, 'SELECT "id", "name" FROM "table";');
+    tt.equal(`${escapedQ2}`, 'SELECT "hex", "hsla" FROM "colors";');
+
+    const unescapedQ = query({ escapeNames: false })
+      .select('field')
+      .from('table');
+    tt.equal(unescapedQ.toString(), 'SELECT field FROM table;');
+
+    tt.end();
   });
 
   t.end();
