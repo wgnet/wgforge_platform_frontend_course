@@ -1,0 +1,16 @@
+let a = 1;
+function getFunc() {
+  let a = 2;
+  const func = new Function('', 'console.log(a)');
+  return func;
+}
+getFunc()(); // 1, из window
+
+
+let a = 1;
+function getFunc() {
+  let a = 2;
+  const func = function() { console.log(a); };
+  return func;
+}
+getFunc()(); // 2, из LexicalEnvironment функции getFunc

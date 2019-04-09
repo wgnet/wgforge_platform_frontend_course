@@ -61,6 +61,13 @@
 
 - [Слайды](https://wgnet.github.io/wgforge_platform_frontend_course/02_functions/)
 
+- Задачи
+    - [исправить ошибку в коде](https://jsbin.com/jexipat/5/edit?js,console)
+    - [Реализуйте monkey patch](https://jsbin.com/josanox/9/edit?js,console)
+    - [Реализуйте функцию мемоизации](https://jsbin.com/vekanah/4/edit?js,console)
+    - [Реализуйте функцию на основе имеющейся применив карринг](https://jsbin.com/mazuren/4/edit?js,console)
+    - [Реализуйте приватные свойства для псевдокласса](https://jsbin.com/xitafoq/1/edit?js,console)
+
 - [Задание](https://github.com/wgnet/wgforge_platform_frontend_course/tree/master/02_functions/practice)
 
 [к содержанию ⬆️](#содержание)
