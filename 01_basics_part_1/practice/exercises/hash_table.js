@@ -22,7 +22,7 @@ export default class HashTable {
   hashKey(key) {
     let sum = 0;
     for (let i = 0; i < key.length; i++) {
-      sum += key.charCodeAt(i);
+      sum += key.charCodeAt(i) * i;
     }
     return sum % 37;
   }

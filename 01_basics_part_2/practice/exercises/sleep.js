@@ -9,7 +9,5 @@ export default function sleep(duration) {
   if (Number.isInteger(duration)) {
     const endTime = new Date().getTime() + duration * 1000;
     while (new Date().getTime() < endTime) {}
-  } else {
-    return undefined;
   }
 }
