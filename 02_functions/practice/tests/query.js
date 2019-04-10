@@ -67,6 +67,35 @@ test('query', t => {
       query()
         .select()
         .from('user')
+        .where('id')
+        .not()
+        .between(1, 2)
+        .toString(),
+      `SELECT * FROM user WHERE id NOT BETWEEN 1 AND 2;`
+    );
+
+    qt.equal(
+      query()
+        .select()
+        .not()
+        .between(2, 3)
+        .toString(),
+      `SELECT * NOT BETWEEN 2 AND 3;`
+    );
+
+    qt.equal(
+      query()
+        .select()
+        .not()
+        .in([2, 3])
+        .toString(),
+      `SELECT * NOT IN (2, 3);`
+    );
+
+    qt.equal(
+      query()
+        .select()
+        .from('user')
         .orWhere('id')
         .gt(42)
         .orWhere('id')

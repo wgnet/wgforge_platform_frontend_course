@@ -80,8 +80,6 @@
  *
  * 3. Реализовать функциональность создания INSERT и DELETE запросов. Написать для них тесты.
  */
-/* eslint-disable func-style*/
-/* eslint-disable no-unused-vars*/
 /* eslint-disable no-use-before-define*/
 export default function query() {
   let sqlQuery = '';
@@ -100,7 +98,7 @@ export default function query() {
     };
   };
 
-  function gt(condition) {
+  const gt = function(condition) {
     if (typeof condition === 'string') {
       sqlQuery += ` > '${condition}'`;
     } else {
@@ -111,9 +109,9 @@ export default function query() {
       orWhere,
       where
     };
-  }
+  };
 
-  function inFunc(condition) {
+  const inFunc = function(condition) {
     let interval = '';
     condition.forEach((element, index) => {
       if (index !== 0) {
@@ -134,9 +132,9 @@ export default function query() {
       orWhere,
       where
     };
-  }
+  };
 
-  function gte(condition) {
+  const gte = function(condition) {
     if (typeof condition === 'string') {
       sqlQuery += ` >= '${condition}'`;
     } else {
@@ -147,15 +145,16 @@ export default function query() {
       orWhere,
       where
     };
-  }
+  };
 
-  function notWhere() {
+  const notWhere = function() {
     sqlQuery = [...sqlQuery.split(' ')];
     sqlQuery.splice(sqlQuery.indexOf('WHERE') + 1, 0, 'NOT');
     sqlQuery = sqlQuery.join(' ');
     return {
       isNull: isWhereNotNull,
       in: whereNotIn,
+      between: whereNotBetween,
       equals,
       lt,
       gt,
@@ -163,23 +162,39 @@ export default function query() {
       gte,
       toString
     };
-  }
+  };
 
-  function whereNotIn(condition) {
+  const notBetween = function(value1, value2) {
+    sqlQuery += ` NOT BETWEEN ${value1} AND ${value2}`;
+    return {
+      toString,
+      orWhere,
+      where
+    };
+  };
+
+  const whereNotBetween = function(value1, value2) {
+    sqlQuery = [...sqlQuery.split(' ')];
+    sqlQuery.splice(sqlQuery.indexOf('NOT'), 1);
+    sqlQuery = sqlQuery.join(' ');
+    return notBetween(value1, value2);
+  };
+
+  const whereNotIn = function(condition) {
     sqlQuery = [...sqlQuery.split(' ')];
     sqlQuery.splice(sqlQuery.indexOf('NOT'), 1);
     sqlQuery = `${sqlQuery.join(' ')} NOT`;
     return inFunc(condition);
-  }
+  };
 
-  function isWhereNotNull() {
+  const isWhereNotNull = function() {
     sqlQuery = [...sqlQuery.split(' ')];
     sqlQuery.splice(sqlQuery.indexOf('NOT'), 1);
     sqlQuery = sqlQuery.join(' ');
     return isNotNull();
-  }
+  };
 
-  function lt(condition) {
+  const lt = function(condition) {
     if (typeof condition === 'string') {
       sqlQuery += ` < '${condition}'`;
     } else {
@@ -190,9 +205,9 @@ export default function query() {
       orWhere,
       where
     };
-  }
+  };
 
-  function lte(condition) {
+  const lte = function(condition) {
     if (typeof condition === 'string') {
       sqlQuery += ` <= '${condition}'`;
     } else {
@@ -203,56 +218,52 @@ export default function query() {
       orWhere,
       where
     };
-  }
+  };
 
-  function between(value1, value2) {
+  const between = function(value1, value2) {
     sqlQuery += ` BETWEEN ${value1} AND ${value2}`;
     return {
       toString,
       orWhere,
       where
     };
-  }
+  };
 
-  function isNull() {
+  const isNull = function() {
     return {
       toString,
       orWhere,
       where
     };
-  }
+  };
 
-  function not() {
+  const not = function() {
     return {
       isNull: isNotNull,
       in: notIn,
-      equals,
-      lt,
-      gt,
-      lte,
-      gte,
+      between: notBetween,
       toString
     };
-  }
+  };
 
-  function isNotNull() {
+  const isNotNull = function() {
     sqlQuery += ' IS NOT NULL';
     return {
       toString,
       orWhere,
       where
     };
-  }
+  };
 
-  function notIn(condition) {
-    sqlQuery += ` NOT (${condition.join(', ')})`;
+  const notIn = function(condition) {
+    sqlQuery += ` NOT IN (${condition.join(', ')})`;
     return {
       toString,
       orWhere
     };
-  }
+  };
 
-  function select(columnName) {
+  const select = function(columnName) {
     whereCounter = 0;
     sqlQuery = '';
     if (columnName) {
@@ -260,10 +271,10 @@ export default function query() {
     } else {
       sqlQuery += 'SELECT *';
     }
-    return { from };
-  }
+    return { from, not };
+  };
 
-  function where(condition) {
+  const where = function(condition) {
     if (whereCounter > 0) {
       sqlQuery += ` AND ${condition}`;
     } else {
@@ -283,22 +294,22 @@ export default function query() {
       isNull,
       between
     };
-  }
+  };
 
-  function from(tableName) {
+  const from = function(tableName) {
     sqlQuery += ` FROM ${tableName}`;
-    return { where, toString, from: getFromCondition, orWhere };
-  }
+    return { where, toString, from: getFromCondition, orWhere, not };
+  };
 
-  function getFromCondition() {
+  const getFromCondition = function() {
     return { where, toString };
-  }
+  };
 
-  function toString() {
+  const toString = function() {
     return `${sqlQuery};`;
-  }
+  };
 
-  function orWhere(condition) {
+  const orWhere = function(condition) {
     if (whereCounter === 0) {
       sqlQuery += ` WHERE ${condition}`;
     } else {
@@ -313,11 +324,11 @@ export default function query() {
       gte,
       lte,
       in: inFunc,
-      not,
+      not: notWhere,
       isNull,
       between
     };
-  }
+  };
 
   return {
     select,
