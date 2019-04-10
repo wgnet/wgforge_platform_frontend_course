@@ -81,6 +81,155 @@
  * 3. Реализовать функциональность создания INSERT и DELETE запросов. Написать для них тесты.
  */
 
-export default function query() {
-  // ¯\_(ツ)_/¯
+export default function query(tableName = null) {
+    let queryFuncArgument = tableName;
+    let methodFromIsNeeded = true;
+    let methodIsCalled = false;
+    let result = [];
+
+    
+
+    function addQuotes(value) {
+        if (typeof value === 'string') {
+            return `'${value}'`;
+        }
+        return value;
+    }
+    function Where(prefix, context, str) {
+        let notIsCalled = false;
+        this.equals = function (value) {
+            if (notIsCalled) {
+                result.push(prefix, 'NOT', str, '=', addQuotes(value));
+            } else {
+                result.push(prefix, str, '=', addQuotes(value));
+            }
+            return context;
+        }
+        this.in = function (array) {
+            if (!Array.isArray(array)) {
+                return console.error('argument should be an array');
+            }
+
+            let arr = array.map(el => addQuotes(el)); // если строка оборачиваем в кавычки
+
+            if (notIsCalled) {
+                result.push(prefix, str, 'NOT', 'IN', `(${arr.join(', ')})`);
+            } else {
+                result.push(prefix, str, 'IN', `(${arr.join(', ')})`);
+            }
+            return context;
+        }
+        this.gt = function (value) {
+            if (notIsCalled) {
+                result.push(prefix, 'NOT', str, '>', addQuotes(value));
+            } else {
+                result.push(prefix, str, '>', addQuotes(value));
+            }
+            return context;
+        }
+        this.gte = function (value) {
+            if (notIsCalled) {
+                result.push(prefix,'NOT', str, '>=', addQuotes(value));
+            } else {
+                result.push(prefix, str, '>=', addQuotes(value));
+            }
+            return context;
+        }
+        this.lt = function (value) {
+            if (notIsCalled) {
+                result.push(prefix,'NOT', str, '<', addQuotes(value));
+            } else {
+                result.push(prefix, str, '<', addQuotes(value));
+            }            
+            return context;
+        }
+        this.lte = function (value) {
+            if (notIsCalled) {
+                result.push(prefix,'NOT', str, '<=', addQuotes(value));
+            } else {
+                result.push(prefix, str, '<=', addQuotes(value));
+            }            
+            return context;
+        }
+        this.between = function (fromValue, toValue) {
+            if (notIsCalled) {
+                result.push(prefix, str, 'NOT', 'BETWEEN', addQuotes(fromValue), 'AND', addQuotes(toValue));
+            } else {
+                result.push(prefix, str, 'BETWEEN', addQuotes(fromValue), 'AND', addQuotes(toValue));
+            }
+            return context;
+        },
+            this.isNull = function () {
+                if (notIsCalled) {
+                    result.push(prefix, str, 'IS', 'NOT', 'NULL');
+                } else {
+                    result.push(prefix, str, 'IS', 'NULL');
+                }
+                return context;
+            },
+            this.not = function () {
+                if (notIsCalled) {
+                    return console.error("not() can't be called multiple times in a row");
+                } else {
+                    notIsCalled = true;
+                }
+                return this
+            }
+    }
+
+    return {
+        select(...strings) {
+            if (strings.some(argOfSelectMetod => typeof argOfSelectMetod !== 'string')) {
+                return console.error('arguments should be a strings');
+            }
+            if (!arguments.length) {
+                result.push('SELECT', '*');
+            } else {
+                result.push('SELECT', ...strings);
+            }
+            return this;
+        },
+        from(tableName = queryFuncArgument) {
+            if (typeof tableName !== 'string') {
+                return console.error('arguments should be a strings');
+            }
+            if (queryFuncArgument && methodFromIsNeeded) {
+                result.push('FROM', queryFuncArgument);
+                methodFromIsNeeded = false;
+            } else if (tableName && methodFromIsNeeded) {
+                result.push('FROM', tableName);
+                methodFromIsNeeded = false;
+            }
+            return this;
+        },
+        where(str) {
+            if (typeof str !== 'string') {
+                return console.error('arguments should be a strings');
+            }
+            let prefix;
+            if (!methodIsCalled && !methodFromIsNeeded) {
+                prefix = 'WHERE';
+                methodIsCalled = true;
+            } else {
+                prefix = 'AND';
+            }
+            return new Where(prefix, this, str);
+        },
+        orWhere(str) {
+            if (typeof str !== 'string') {
+                return console.error('arguments should be a strings');
+            }
+            let prefix;
+            if (!methodIsCalled && !methodFromIsNeeded) {
+                prefix = 'WHERE';
+                methodIsCalled = true;
+            } else {
+                prefix = 'OR';
+            }
+            return new Where(prefix, this, str);
+        },
+        toString() {
+            return result.join(' ') + ';';
+        }
+    }
 }
