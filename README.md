@@ -74,4 +74,16 @@
 
 ----
 
+----
+
+## 03 Итераторы
+
+- [Слайды](https://wgnet.github.io/wgforge_platform_frontend_course/03_iterators/)
+
+- [Задание](https://github.com/wgnet/wgforge_platform_frontend_course/tree/master/03_iterators/practice)
+
+[к содержанию ⬆️](#содержание)
+
+----
+
 © 2019 Wargaming.net
