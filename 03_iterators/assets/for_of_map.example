@@ -1,0 +1,10 @@
+const colors = new Map();
+
+colors.set(0xffffff, 'white');
+colors.set(0xff0000, 'red');
+colors.set(0x00ff00, 'green');
+colors.set(0x0000ff, 'blue');
+
+for (let color of colors) {
+    console.log(color);
+}
