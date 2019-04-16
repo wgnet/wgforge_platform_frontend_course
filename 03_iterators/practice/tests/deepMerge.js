@@ -2,7 +2,7 @@ import test from 'tape-catch';
 import _merge from 'lodash.merge';
 import deepMerge from '../exercises/deepMerge';
 
-const destinationObject = {
+const DestinationObject = () => ({
   forgeFrontend: {
     coaches: [{ name: 'Coache 1' }, { name: 'Coache 2' }],
     students: ['Student 1', 'Student 2']
@@ -22,7 +22,7 @@ const destinationObject = {
       }
     }
   ]
-};
+});
 
 const sourceObject = {
   forgeFrontend: {
@@ -48,8 +48,8 @@ const sourceObject = {
 test('deepMerge', t => {
   t.equal(typeof deepMerge, 'function');
 
-  const deepMergeResult = deepMerge(destinationObject, sourceObject);
-  const expectedMergeResult = _merge(destinationObject, sourceObject);
+  const deepMergeResult = deepMerge(new DestinationObject(), sourceObject);
+  const expectedMergeResult = _merge(new DestinationObject(), sourceObject);
 
   t.test('deep merge two objects', tt => {
     tt.deepEqual(deepMergeResult, expectedMergeResult);
