@@ -1,0 +1,121 @@
+body {
+    margin: 0;
+    position: relative;
+}
+
+.header {
+    height: 60px;
+    background: rgba(0,0,0, 1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+}
+@media all and (min-width: 760px) {
+    .header {
+        background: rgba(0, 0, 0, .5);
+    }
+}
+
+.main-nav {
+    display: none;
+}
+.search {
+    display: none;
+}
+.main-button {
+    display: none;
+}
+.page-nav {
+    display: none;
+}
+.article {
+    display: none;
+}
+.section__open .article {
+    display: block;
+}
+.footer {
+    display: none;
+}
+.invisible {
+    color: transparent;
+    font: 0/0 a;
+}
+.intro {
+    display: none;
+}
+
+.bg {
+    position: absolute;
+    top: 60px;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+@media all and (min-width: 760px) {
+    .bg {
+        top: 0;
+    }
+}
+.bg_game {
+    background: url("img/grass.webp"),
+                url("img/grass.webp") repeat 150px 200px,
+                url("img/grass.webp") repeat 50px 100px;
+    position: absolute;
+    top: 0;
+    bottom: 67%;
+    right: 0;
+    left: 0;
+    mask: url("img/mask_mob.gif") bottom left repeat-x;
+}
+.bg_power {
+    background: url("img/dust.webp") repeat 150px 200px,
+                url("img/dust.webp"),
+                url("img/dust.webp") repeat 50px 100px;
+    position: absolute;
+    top: 67%;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    mask: url("img/mask_mob.gif") top left repeat-x;
+}
+.bg_tanks {
+    background: url("img/sand.webp") repeat 50px 100px,
+                url("img/sand.webp") repeat 150px 200px,
+                url("img/sand.webp");
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+.bg__game .bg_tanks,
+.bg__game .bg_power {
+    display: none;
+}
+.bg__game .bg_game {
+    bottom: 0;
+    mask: none;
+}
+
+.main {
+    box-sizing: border-box;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    padding-top: 60px;
+    position: relative;
+    min-height: 100vh;
+}
+
+.title {
+    color: #fff;
+    font: 24px/normal 'Open Sans Condensed';
+}
+
+.main__game .section__tank,
+.main__game .section__power {
+    display: none;
+}
