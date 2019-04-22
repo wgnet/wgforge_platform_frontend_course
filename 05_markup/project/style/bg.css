@@ -1,0 +1,105 @@
+.bg {
+    box-sizing: border-box;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 60px;
+    position: absolute;
+}
+@media all and (min-width: 760px) {
+    .bg {
+        top: 0;
+        overflow: hidden;
+    }
+}
+
+.bg_game {
+    background: url("../img/grass.webp"),
+                url("../img/grass.webp") repeat 150px 200px,
+                url("../img/grass.webp") repeat 50px 100px;
+    mask: url("../img/mask_mob.gif") repeat-x bottom;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 67%;
+}
+
+/*** toggle ***/
+.toggle .bg_game {
+    bottom: 0;
+    mask: none;
+}
+@media all and (min-width: 760px) {
+    .bg_game {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        -webkit-mask: url("../img/mask.gif") repeat-y right;
+        mask: url("../img/mask.gif") repeat-y right;
+        transform: translate3d(-67%, 0, 0);
+
+        /*** transition ***/
+        transition: transform var(--animation-bg) ease;
+    }
+}
+
+/*** toggle ***/
+@media all and (min-width: 760px) {
+    .toggle .bg_game {
+        -webkit-mask: url("../img/mask.gif") repeat-y right;
+        mask: url("../img/mask.gif") repeat-y right;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.bg_tanks {
+    background: url("../img/sand.webp") repeat 50px 100px,
+                url("../img/sand.webp") repeat 150px 200px,
+                url("../img/sand.webp");
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.bg_power {
+    background: url("../img/dust.webp") repeat 150px 200px,
+                url("../img/dust.webp"),
+                url("../img/dust.webp") repeat 50px 100px;
+    mask: url("../img/mask_mob.gif") repeat-x top;
+    position: absolute;
+    top: 67%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+@media all and (min-width: 760px) {
+    .bg_power {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        -webkit-mask: url("../img/mask.gif") repeat-y left;
+        mask: url("../img/mask.gif") repeat-y left;
+        transform: translate3d(67%, 0, 0);
+
+        /*** transition ***/
+        transition: transform var(--animation-bg) ease;
+    }
+}
+
+/*** toggle ***/
+.toggle .bg_power {
+    display: none;
+}
+
+/*** toggle ***/
+@media all and (min-width: 760px) {
+    .toggle .bg_power {
+        display: block;
+        transform: translate3d(100%, 0, 0);
+    }
+}
