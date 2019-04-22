@@ -1,0 +1,95 @@
+@media all and (min-width: 760px) {
+    .tank {
+        height: 100vh;
+        left: 0;
+        overflow: hidden;
+        position: absolute;
+        width: 100vw;
+    }
+    .tank_wrapper {
+        height: 100vh;
+        left: 0;
+        position: absolute;
+        width: 100vw;
+
+        transform-origin: left bottom;
+        transform: rotate(0) translate3d(0, 0, 0);
+
+        /*** transition ***/
+        transition: transform 6s ease;
+    }
+
+    /*** toggle ***/
+    .toggle .tank_wrapper {
+        transform: rotate(-90deg) translate3d(0, -50vw, 0);
+    }
+
+    .tank_vehicle {
+        background: url("../img/tank.webp") no-repeat 0 0;
+        height: 608px;
+        left: 0;
+        margin: auto;
+        position: absolute;
+        right: 0;
+        top: 100%;
+        width: 405px;
+
+        /*** animation ***/
+        animation: tank 2s forwards;
+    }
+
+    .tank_turret {
+        background: url("../img/turret.webp") no-repeat 0 20px,
+                    url("../img/turret-shadow.webp") no-repeat 10px 0;
+        height: 547px;
+        left: 0;
+        margin: auto;
+        position: absolute;
+        right: 0;
+        top: -22%;
+        width: 212px;
+        transform-origin: 50% 75%;
+        transition: transform 3s ease;
+
+        /*** animation ***/
+        /*animation: turret 20s infinite alternate;*/
+    }
+    .tank_turret__left {
+        transform: rotate(-40deg);
+    }
+    .tank_turret__right {
+        transform: rotate(40deg);
+    }
+    .tank_turret__center {
+        transform: rotate(0deg);
+    }
+
+    /*** animation ***/
+    @keyframes turret {
+        from {
+            transform: rotate(-100deg);
+        }
+        20% {
+            transform: rotate(-10deg);
+        }
+        50% {
+            transform: rotate(30deg);
+        }
+        80% {
+            transform: rotate(-20deg);
+        }
+        to {
+            transform: rotate(30deg);
+        }
+    }
+
+    /*** animation ***/
+    @keyframes tank {
+        from {
+            transform: translate3d(0, 0, 0);
+        }
+        to {
+            transform: translate3d(0, -40%, 0);
+        }
+    }
+}
