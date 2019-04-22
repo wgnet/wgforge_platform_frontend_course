@@ -1,0 +1,60 @@
+.layout {
+    box-sizing: border-box;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    min-height: 100vh;
+    padding-top: 60px;
+    position: relative;
+}
+@media all and (min-width: 760px) {
+    .layout {
+        grid-template-rows: 1fr;
+        grid-template-columns: repeat(3, 1fr);
+        overflow: hidden;
+        padding-top: 0;
+    }
+}
+
+/*** toggle ***/
+.toggle .layout {
+    display: block;
+}
+
+@media all and (min-width: 760px) {
+    .layout_item {
+        overflow: hidden;
+    }
+}
+
+/*** parallax ***/
+@media all and (min-width: 760px) {
+    .toggle .layout_item__game {
+        perspective: 300px;
+        height: 100vh;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+}
+
+.layout_header {
+    height: 100%;
+    display: flex;
+    cursor: pointer;
+}
+@media all and (min-width: 760px) {
+    .layout_header {
+        flex-direction: column;
+        justify-content: space-between;
+    }
+}
+@media all and (min-width: 760px) {
+    .layout_header::before {
+        content: '';
+        flex: 1 1 50%;
+    }
+}
+
+/*** toggle ***/
+.toggle .layout_header {
+    display: none;
+}

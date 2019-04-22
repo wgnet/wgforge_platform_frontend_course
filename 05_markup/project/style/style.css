@@ -1,0 +1,117 @@
+@import "bg.css";
+@import "layout.css";
+@import "top-panel.css";
+@import "ico.css";
+@import "article.css";
+@import "tank.css";
+
+
+/*** toggle ***/
+/*** transition ***/
+/*** @tank ***/
+/*** animation ***/
+/*** parallax ***/
+
+
+:root {
+  --animation-bg: 1600ms;
+}
+
+body {
+    color: #fff;
+    font-family: 'Open Sans Condensed', sans-serif;
+    margin: 0;
+    position: relative;
+}
+
+.invisible {
+    color: transparent;
+    flex: 0 1 0;
+    font: 0/0 a;
+    overflow: hidden;
+    width: 1px;
+}
+
+.navigation {
+    display: none;
+}
+
+.main-nav {
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+.main-nav_item {
+    list-style: none;
+}
+.main-nav_link {
+    color: #fff;
+}
+
+.play {
+    color: #fff;
+}
+
+.page-nav {
+    display: none;
+    bottom: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+
+.intro {
+    display: none;
+}
+@media all and (min-width: 760px) {
+    .intro {
+        display: flex;
+        align-items: flex-end;
+        flex: 1 1 50%;
+        font-size: 1.5vw;
+        margin: 0;
+        padding: 0 15% 30px;
+    }
+}
+
+.heading {
+    font-size: 36px;
+    line-height: 30px;
+    margin: 0 0 17px 0;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+@media all and (min-width: 760px) {
+    .heading {
+        font-size: 9vw;
+        line-height: .9;
+        margin: 0 0 43px 0;
+    }
+}
+.heading_item {
+    position: relative;
+    z-index: 2;
+}
+.heading_slogan {
+    display: inline-block;
+    font-size: 12px;
+    line-height: normal;
+    font-weight: normal;
+    vertical-align: top;
+}
+@media all and (min-width: 760px) {
+    .heading_slogan {
+        font-size: 14px;
+        margin-top: 6px;
+    }
+}
+
+.paragraph {
+    margin: 0;
+}
+
+.footer {
+    bottom: 0;
+    display: none;
+    position: fixed;
+}
