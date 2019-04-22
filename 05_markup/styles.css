@@ -289,6 +289,28 @@ url("project/img/s2-tank.webp") no-repeat -30% bottom;
         height: 100%;
     }
 
+    .inner_article h3 {
+        font-size: 101.22px;
 
+    }
+
+    .inner_article .intro {
+        column-count: 2;
+        width: 70%;
+        font-size: 21px;
+    }
+
+    .inner_article:nth-child(2) {
+        background: url("project/img/s2-tank.webp") no-repeat 240% bottom,
+        url("project/img/s2-tank.webp") no-repeat -135% bottom,
+        url("project/img/s2-tank-remote.webp") no-repeat center;
+    }
+
+    .inner_article:first-child {
+        background: url("project/img/s1-tanks.webp") no-repeat left,
+        url("project/img/s1-rock-left.webp") no-repeat bottom left,
+        url("project/img/s1-rock-right.webp") no-repeat 100% 70%;
+        background-size: auto;
+    }
 
 }
