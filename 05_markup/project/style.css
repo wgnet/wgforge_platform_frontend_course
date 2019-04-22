@@ -5,7 +5,7 @@ body {
 
 .header {
     height: 60px;
-    background: rgba(0,0,0, 1);
+    background: rgba(0, 0, 0, 1);
     position: absolute;
     top: 0;
     left: 0;
@@ -13,6 +13,7 @@ body {
     bottom: 0;
     z-index: 1;
 }
+
 @media all and (min-width: 760px) {
     .header {
         background: rgba(0, 0, 0, .5);
@@ -22,28 +23,36 @@ body {
 .main-nav {
     display: none;
 }
+
 .search {
     display: none;
 }
+
 .main-button {
     display: none;
 }
+
 .page-nav {
     display: none;
 }
+
 .article {
     display: none;
 }
+
 .section__open .article {
     display: block;
 }
+
 .footer {
     display: none;
 }
+
 .invisible {
     color: transparent;
     font: 0/0 a;
 }
+
 .intro {
     display: none;
 }
@@ -55,47 +64,63 @@ body {
     right: 0;
     left: 0;
 }
+
 @media all and (min-width: 760px) {
     .bg {
         top: 0;
     }
 }
+
 .bg_game {
-    background: url("img/grass.webp"),
-                url("img/grass.webp") repeat 150px 200px,
-                url("img/grass.webp") repeat 50px 100px;
+    background: url("img/grass.webp"), url("img/grass.webp") repeat 150px 200px, url("img/grass.webp") repeat 50px 100px;
     position: absolute;
     top: 0;
     bottom: 67%;
     right: 0;
     left: 0;
     mask: url("img/mask_mob.gif") bottom left repeat-x;
+    -webkit-mask: url("img/mask_mob.gif") bottom left repeat-x;
 }
+
 .bg_power {
-    background: url("img/dust.webp") repeat 150px 200px,
-                url("img/dust.webp"),
-                url("img/dust.webp") repeat 50px 100px;
+    background: url("img/dust.webp") repeat 150px 200px, url("img/dust.webp"), url("img/dust.webp") repeat 50px 100px;
     position: absolute;
     top: 67%;
     bottom: 0;
     right: 0;
     left: 0;
     mask: url("img/mask_mob.gif") top left repeat-x;
+    -webkit-mask: url("img/mask_mob.gif") top left repeat-x;
 }
+
 .bg_tanks {
-    background: url("img/sand.webp") repeat 50px 100px,
-                url("img/sand.webp") repeat 150px 200px,
-                url("img/sand.webp");
+    background: url("img/sand.webp") repeat 50px 100px, url("img/sand.webp") repeat 150px 200px, url("img/sand.webp");
     position: absolute;
     top: 0;
     bottom: 0;
     right: 0;
     left: 0;
 }
-.bg__game .bg_tanks,
-.bg__game .bg_power {
+
+@media all and (min-width: 760px) {
+    .bg {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .bg_game {
+        right: 67%;
+        bottom: 0;
+    }
+    .bg_power {
+        left: 67%;
+        top: 0;
+    }
+}
+
+.bg__game .bg_tanks, .bg__game .bg_power {
     display: none;
 }
+
 .bg__game .bg_game {
     bottom: 0;
     mask: none;
@@ -110,12 +135,51 @@ body {
     min-height: 100vh;
 }
 
-.title {
-    color: #fff;
-    font: 24px/normal 'Open Sans Condensed';
+.main .section {
+    align-self: center;
+    justify-self: center;
 }
 
-.main__game .section__tank,
-.main__game .section__power {
+@media all and (min-width: 760px) {
+    .main {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .main .section {
+        grid-row-start: 2;
+    }
+}
+
+.title {
+    position: relative;
+    color: #fff;
+    font: 24px/bold 'Open Sans Condensed';
+    text-align: center;
+}
+.title::before{
+    content: '';
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    left:50%;
+    top:75%;
+    margin-top: -60px;
+    margin-left: -60px;
+}
+.section__game .title::before{
+    background: url("img/the-game.png") no-repeat center/contain;
+}
+.section__tank .title::before{
+    background: url("img/the-tank.png") no-repeat center/contain;
+}
+.section__power .title::before{
+    background: url("img/the-power.png") no-repeat center/contain;
+}
+
+.main__game .section__tank, .main__game .section__power {
     display: none;
+}
+.title_span{
+    display: block;
+    font: normal small-caps 20px 'Open Sans Condensed';
+    
 }
