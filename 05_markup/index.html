@@ -1,128 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Title</title>
-  </head>
-
-  <body>
-    <h1>About game</h1>
-    <header>
-      <nav>
-        <h2>Main navigation</h2>
-        <ul>
-          <li>
-            <a href="">News</a>
-          </li>
-          <li>
-            <a href="">Game</a>
-          </li>
-          <li>
-            <a href="">Home</a>
-          </li>
-          <li>
-            <a href="">Tankopedia</a>
-          </li>
-        </ul>
-      </nav>
-      <input aria-label="search" type="search" />
-      <a href="">Play free now</a>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About Game</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<h1 class="invisible">About Game</h1>
+<header class="header">
+  <nav class="main-nav">
+    <h2>Main navigation</h2>
+    <ul>
+      <li>
+        <a href="">News</a>
+      </li>
+      <li>
+        <a href="">Game</a>
+      </li>
+      <li>
+        <a href="">Home</a>
+      </li>
+      <li>
+        <a href="">Tankopedia</a>
+      </li>
+      <li>
+        <a href="">Stats</a>
+      </li>
+    </ul>
+  </nav>
+  <input aria-label="search" type="search" class="search">
+  <a href="" class="main-button">Play free now</a>
+</header>
+<nav class="page-nav">
+  <h2>Page navigation</h2>
+  <ul>
+    <li>
+      <a href="">The Game</a>
+      <ul>
+        <li>
+          <a href="">About</a>
+        </li>
+        <li>
+          <a href="">About</a>
+        </li>
+        <li>
+          <a href="">About</a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="">The Tanks</a>
+      <ul>
+        <li>
+          <a href="">About</a>
+        </li>
+        <li>
+          <a href="">About</a>
+        </li>
+        <li>
+          <a href="">About</a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="">The Power</a>
+      <ul>
+        <li>
+          <a href="">About</a>
+        </li>
+        <li>
+          <a href="">About</a>
+        </li>
+        <li>
+          <a href="">About</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+<div class="bg"><!-- bg__game -->
+  <div class="bg_tanks"></div>
+  <div class="bg_game"></div>
+  <div class="bg_power"></div>
+</div>
+<div class="background-tank">
+  <div class="tank"></div>
+  <div class="turret_streight"></div>
+  <div class="turret_left"></div>
+  <div class="turret_right"></div>
+</div>
+<main class="main"><!-- main__game -->
+  <section class="section section__game"><!-- section__open -->
+      <header>
+      <h2 class="title">The<br><strong>Game</strong></h2>
+      <p class="intro">Risk meets reward on the battlefield.
+        Learn everything about World of Tanks and what to
+        expect.
+      </p>
     </header>
-    <nav>
-      <h2>About Teamplay Modes</h2>
-      <ul>
-        <li>
-          <a href="">About</a>
-        </li>
-        <li>
-          <a href="">About</a>
-        </li>
-        <li>
-          <a href="">About</a>
-        </li>
-        <li>
-          <a href="">About</a>
-        </li>
-      </ul>
-    </nav>
-    <main>
-      <section>
-        <header>
-          <h2>The Game</h2>
-          <p>
-            Risk meets reward on the battlefield. Learn everything about World
-            of Tanks and what to expect.
-          </p>
-        </header>
-        <article>
-          <h3>World of tanks</h3>
-          <span>Custom build for xbox</span>
-          <p>
-            For years, World of Tanks has been the go-to game for epic battles
-            featuring historically accurate armored vehicles. Experience driving
-            a multi-ton, cannon-equipped behemoth into combat against teams of
-            tankers from all over the world. World of Tanks: Xbox 360 Edition
-            was made from the ground-up, with every part of the game ratcheted
-            up for explosive showdowns like no other.
-          </p>
-        </article>
-      </section>
-      <section>
-        <header>
-          <h2>The Tanks</h2>
-          <p>
-            Tanks pose incredible danger, but you're in control. Browse a huge
-            arsenal of vehicles and prime upgrade potential among four nations.
-          </p>
-        </header>
-        <article>
-          <h3>World of tanks</h3>
-          <p>
-            It's great to dream of being the ace who saves the day, but it's
-            only through teamwork that you and your allies prevail. 30 tanks
-            split between two teams battle for supremacy on over a dozen
-            intricately-designed maps.
-          </p>
-        </article>
-      </section>
-      <section>
-        <header>
-          <h2>The Power</h2>
-          <p>
-            Revolutionary gameplay and detail-rich graphics. Realistic,
-            strategy-heavy maps. It's one game, but it has so much to give.
-          </p>
-        </header>
-        <article>
-          <h3>World of tanks</h3>
-          <p>
-            World of Tanks: Xbox 360 Edition offers three distinct game modes:
-            Standard, Encounter, and Assault. Standard battles are intense
-            "capture" scenarios where two teams attempt to secure the opposing
-            base. Encounter battles offer only one base to capture, and teams
-            fight tooth-and-nail to keep it. In Assault mode, players get a
-            pitched battle between attackers and defenders during a single-base
-            engagement.
-          </p>
-        </article>
-      </section>
-    </main>
-
-    <footer>
-      <ul>
-        <li>
-          <a href="">Facebook</a>
-        </li>
-        <li>
-          <a href="">Google</a>
-        </li>
-        <li>
-          <a href="">Twitter</a>
-        </li>
-        <li>
-          <a href="">Vk</a>
-        </li>
-      </ul>
-    </footer>
-  </body>
+    <article class="article">
+      <h3>World of tanks</h3>
+      <p class="intro">For years, World of Tanks has been the go-to game for epic battles featuring
+        historically accurate armored vehicles. Experience driving a multi-ton,
+        cannon-equipped behemoth into combat against teams of tankers from all over the world.
+        World of Tanks: Xbox 360 Edition was made from the ground-up, with every part of the game ratcheted up
+        for explosive showdowns like no other. </p>
+    </article>
+    <article class="article">
+      <h3>Massive team battles</h3>
+      <p class="intro">It's great to dream of being the ace who saves the day, but it's only through teamwork that you and your
+        allies prevail. 30 tanks split between two teams battle for supremacy on over a dozen
+        intricately-designed maps. Do your best to collaborate,
+        and your allies will work with you to unleash an unstoppable assault against your enemies!</p>
+    </article>
+    <article class="article">
+      <h3>Multiple game modes</h3>
+      <p class="intro">World of Tanks: Xbox 360 Edition offers three distinct game modes: Standard,
+        Encounter, and Assault. Standard battles are intense "capture" scenarios where two teams attempt
+        to secure the opposing base. Encounter battles offer only one base to capture,
+        and teams fight tooth-and-nail to keep it. In Assault mode, players get a pitched battle between
+        attackers and defenders during a single-base engagement.</p>
+    </article>
+  </section>
+  <section class="section section__tank">
+    <header>
+      <h2 class="title">The <br><strong>Tanks</strong></h2>
+      <p class="intro">Tanks pose incredible danger,
+        but you're in control.
+        Browse a huge arsenal of vehicles and prime
+        upgrade potential among four nations.
+      </p>
+    </header>
+  </section>
+  <section class="section section__power">
+    <header>
+      <h2 class="title">The <br><strong>Power</strong></h2>
+      <p class="intro">Revolutionary gameplay and
+        detail-rich graphics. Realistic,
+        strategy-heavy maps. It's one game,
+        but it has so much to give.
+      </p>
+    </header>
+  </section>
+</main>
+<footer class="footer">
+  <ul>
+    <li>
+      <a href="">facebook</a>
+    </li>
+    <li>
+      <a href="">google</a>
+    </li>
+    <li>
+      <a href="">twitter</a>
+    </li>
+    <li>
+      <a href="">vkontakte</a>
+    </li>
+  </ul>
+</footer>
+</body>
 </html>

@@ -1,0 +1,291 @@
+
+body {
+    margin: 0;
+    position: relative;
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: #fff;
+}
+
+.header {
+    height: 60px;
+    background: #272727;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+}
+.bg_tanks {
+    background: url("project/img/sand.webp") repeat 50px 100px,
+    url("project/img/sand.webp") repeat 150px 200px,
+    url("project/img/sand.webp");
+    position: absolute;
+    top: 33%;
+    bottom: 33%;
+    right: 0;
+    left: 0;
+}
+
+.main-nav {
+    display: none;
+}
+
+.search {
+    display: none;
+}
+.main-button {
+    display: none;
+}
+.page-nav {
+    display: none;
+}
+.article {
+    display: none;
+}
+.section__open .article {
+    display: block;
+}
+.footer {
+    display: none;
+}
+.invisible {
+    color: transparent;
+    font: 0/0 a;
+}
+.intro {
+    display: none;
+}
+
+.bg {
+    position: absolute;
+    top: 60px;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+.bg_game {
+    background: url("project/img/grass.webp"),
+    url("project/img/grass.webp") repeat 150px 200px,
+    url("project/img/grass.webp") repeat 50px 100px;
+    position: absolute;
+    top: 0;
+    bottom: 67%;
+    right: 0;
+    left: 0;
+    mask: url("project/img/mask_mob.gif") bottom left repeat-x;
+}
+.bg_power {
+    background: url("project/img/dust.webp") repeat 150px 200px,
+    url("project/img/dust.webp"),
+    url("project/img/dust.webp") repeat 50px 100px;
+    position: absolute;
+    top: 67%;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    mask: url("project/img/mask_mob.gif") top left repeat-x;
+}
+
+.bg__game .bg_tanks,
+.bg__game .bg_power {
+    display: none;
+}
+.bg__game .bg_game {
+    bottom: 0;
+    mask: none;
+}
+
+.main {
+    box-sizing: border-box;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    padding-top: 60px;
+    position: relative;
+    min-height: 100vh;
+}
+
+.title {
+    display: table-caption;
+    font: 24px/normal 'Open Sans Condensed';
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 9.3px;
+}
+
+.title strong{
+    letter-spacing: 5px;
+    font-size: 24px;
+}
+
+.main__game .section__tank,
+.main__game .section__power {
+    display: none;
+}
+
+.section__game {
+    background-image: url("project/img/the-game.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 30%;
+}
+
+.section__tank {
+    background-image: url("project/img/the-tank.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 30%;
+}
+
+.section__power {
+    background-image: url("project/img/the-power.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 30%;
+}
+
+.section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.inner_bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url("project/img/grass.webp"),
+    url("project/img/grass.webp") repeat 150px 200px,
+    url("project/img/grass.webp") repeat 50px 100px;
+}
+
+.inner_main {
+    position: relative;
+    min-height: 100vh;
+    padding-top: 60px;
+}
+
+.inner_article:first-child {
+    background: url("project/img/s1-tanks.webp") no-repeat;
+}
+
+.inner_article:nth-child(2) {
+    background: url("project/img/s2-tank-remote_res.webp") no-repeat;
+}
+
+.inner_article:last-child {
+    background: url("project/img/s3-sky.webp") no-repeat,
+    url("project/img/s3-hill_res.webp") no-repeat;
+}
+
+.inner_section {
+    display: flex;
+    flex-direction: column;
+}
+
+.inner_article {
+    font-size: 16px;
+    text-align: left;
+    margin: auto;
+}
+
+.inner_article .intro{
+    width: 80%;
+    margin: auto;
+}
+
+.inner_article h3 {
+    font-size: 36px;
+    text-transform: uppercase;
+    width: 80%;
+    margin: auto;
+    letter-spacing: 5px;
+
+}
+
+@media all and (min-width: 760px) {
+
+    .header {
+        background: rgba(0, 0, 0, .5);
+    }
+
+    .main {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+    }
+
+    .bg {
+        display: inline-flex;
+        top: 0;
+    }
+
+    .bg_game {
+        top: 0;
+        bottom: 0;
+        right: 67%;
+        left: 0;
+    }
+
+    .bg_power {
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 67%;
+    }
+
+    .bg_tanks {
+        top: 0;
+        bottom: 0;
+        right: 33%;
+        left: 33%;
+    }
+
+    .section {
+        background-size: 40%;
+        align-items: flex-end;
+    }
+
+    .intro {
+        display: block;
+        width: 60%;
+        margin: auto;
+    }
+
+    .section header {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        height: 65%;
+        align-content: space-between;
+    }
+
+    .title {
+        margin: auto;
+        font-size: 14.05px;
+    }
+
+    .title strong {
+        font-size: 36.12px;
+    }
+
+    .tank{
+        position: absolute;
+        background: url("project/img/tank.webp") no-repeat 100%;
+        height: 100%;
+        top: 35%;
+        bottom: 0;
+        left: 0;
+        right: 28%;
+    }
+
+    .background-tank {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+
+
+}
