@@ -1,0 +1,41 @@
+.ico {
+    display: flex;
+    flex-direction: column;
+    font-size: 24px;
+    height: 80px;
+    margin: auto;
+    min-width: 80px;
+    text-align: center;
+    text-transform: uppercase;
+}
+.ico_txt {
+    margin: auto;
+}
+.ico__game {
+    background: url("../img/the-game.png") no-repeat 50% 50% / contain;
+}
+.ico__tanks {
+    background: url("../img/the-tank.png") no-repeat 50% 50% / contain;
+}
+.ico__power {
+    background: url("../img/the-power.png") no-repeat 50% 50% / contain;
+}
+@media all and (min-width: 760px) {
+    .ico {
+        font-size: 36px;
+        height: 210px;
+        max-height: 23.2vh;
+        width: 210px;
+    }
+}
+.ico_the {
+    display: block;
+    font-size: 9px;
+    margin-top: -15px;
+}
+@media all and (min-width: 760px) {
+    .ico_the {
+        font-size: 14px;
+        margin-top: -20px;
+    }
+}
