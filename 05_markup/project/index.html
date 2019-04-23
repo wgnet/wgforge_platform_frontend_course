@@ -59,13 +59,13 @@
 <div class="tank">
     <div class="tank_wrapper">
         <div class="tank_vehicle">
-            <div class="tank_turret"></div><!-- tank_turret__left tank_turret__right tank_turret__center -->
+            <div class="tank_turret" id="tank_turret"></div><!-- tank_turret__left tank_turret__right tank_turret__center -->
         </div>
     </div>
 </div>
 
 <main class="layout">
-    <section class="layout_item layout_item__game">
+    <section class="layout_item layout_item__game" data-turret-direction ='left'>
         <header class="layout_header">
             <h2 class="ico ico__game"><span class="ico_txt"><span class="ico_the">The</span>Game</span></h2>
             <p class="intro">Risk meets reward on the battlefield. Learn everything about
@@ -120,14 +120,14 @@
             </div>
         </article>
     </section>
-    <section class="layout_item layout_item__tanks">
+    <section class="layout_item layout_item__tanks" data-turret-direction ='center'>
         <header class="layout_header">
             <h2 class="ico ico__tanks"><span class="ico_txt"><span class="ico_the">The</span>Tanks</span></h2>
             <p class="intro">Tanks pose incredible danger, but you're in control.
                 Browse a huge arsenal of vehicles and prime upgrade potential among four nations.</p>
         </header>
     </section>
-    <section class="layout_item layout_item__power">
+    <section class="layout_item layout_item__power"data-turret-direction ='right'>
         <header class="layout_header">
             <h2 class="ico ico__power"><span class="ico_txt"><span class="ico_the">The</span>Power</span></h2>
             <p class="intro">Revolutionary gameplay and detail-rich graphics.
@@ -143,6 +143,6 @@
         <li>vkontakte</li>
     </ul>
 </footer>
-<script></script>
+<script src="main.js"></script>
 </body>
 </html>
