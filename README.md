@@ -134,7 +134,7 @@
 
 ## 08 Callbacks, Promises, Async/await
 
-- [Слайды](https://wgnet.github.io/wgforge_platform_frontend_course/07_asyncjs/)
+- [Слайды](https://wgnet.github.io/wgforge_platform_frontend_course/08_asyncjs/)
 
 - [Задание](https://github.com/PavloKovalov/async-js-workbook)
 
