@@ -1,0 +1,9 @@
+async function getUserRepos(username) {
+    const userProfile = await getProfileData(username);
+    console.log(userProfile);
+    
+    const repos = await getRepos(userProfile.repos_url);
+    console.log(repos);
+    
+    return repos;
+}

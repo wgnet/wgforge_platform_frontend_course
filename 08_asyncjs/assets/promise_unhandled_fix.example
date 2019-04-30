@@ -1,0 +1,13 @@
+function someAsyncLogic() {
+    const promise = fetch('/some/data/url/');
+
+    return promise.then(() => {
+        doSomethingComplicated();
+    });
+}
+
+function main() {
+    return fetch('/some/data/url/').then(() => { ... })
+                .then(() => console.log('Done!'))
+                .catch(superDuperErrorLogger);
+}

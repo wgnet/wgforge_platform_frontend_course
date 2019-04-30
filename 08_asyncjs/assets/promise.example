@@ -1,0 +1,11 @@
+const promise = new Promise(function (resolve, reject) {
+    // ...
+});
+
+promise.then(onFulfilled, onRejected);
+
+promise.then(onFulfilled);
+
+promise.then(null, onRejected);
+
+promise.catch(onRejected);

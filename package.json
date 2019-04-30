@@ -68,6 +68,7 @@
     "react-transform-catch-errors": "^1.0.2",
     "redbox-react": "^1.6.0",
     "rimraf": "^2.6.2",
+    "spectacle-code-slide": "0.5.2",
     "style-loader": "^0.23.0",
     "surge": "latest",
     "url-loader": "^1.1.1",

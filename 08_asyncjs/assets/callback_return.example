@@ -1,0 +1,19 @@
+function loadUserRepos(username, callback) {
+    getProfileData(username, processProfile);
+
+    function processProfile(err, data) {
+        if (err) {
+            console.error(err);
+            return callback(err);
+        } 
+        getRepos(data.repos_url, processRepos);
+    }
+    
+    function processRepos(err, reposData) {
+        if (err) {
+            console.error(err);
+            return callback(err);
+        }
+        callback(null, reposData);
+    }
+}

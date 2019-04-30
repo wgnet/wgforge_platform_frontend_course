@@ -1,0 +1,12 @@
+function getTheAnswer() {
+  // the answer to life the universe and everything
+  return 42;
+}
+
+function askBro() {
+  // Hello, World!
+  // I'll get you an answer right now!
+  return getTheAnswer();
+}
+
+askBro();

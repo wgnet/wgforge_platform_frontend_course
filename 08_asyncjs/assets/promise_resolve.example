@@ -1,0 +1,7 @@
+const promise = new Promise(function (resolve, reject) {
+    resolve(42);
+});
+
+promise.then(function (answer) {
+    console.log(answer); // 42
+});

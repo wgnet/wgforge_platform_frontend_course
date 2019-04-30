@@ -1,0 +1,7 @@
+const promise = new Promise(function (resolve, reject) {
+    reject("oops");
+});
+
+promise.catch(function (error) {
+    console.error("ERROR", error);
+});

@@ -1,0 +1,13 @@
+async function getUserRepos(username) {
+    const profilePromise = Promise.resolve(
+        getProfileData(username)
+    );
+
+    return profilePromise.then(userProfile => {
+        console.log(userProfile);
+        return getRepos(userProfile.repos_url);
+    }).then(repos => {
+        console.log(repos);
+        return Promise.resolve(repos);
+    });
+}

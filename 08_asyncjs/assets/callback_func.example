@@ -1,0 +1,9 @@
+import { getProfileData } from './github-api-services';
+
+getProfileData(username, function(err, data) {
+    if (err) {
+        console.error(err)
+    } else {
+        saveState(data);
+    }
+});
