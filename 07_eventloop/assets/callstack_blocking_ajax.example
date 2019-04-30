@@ -1,0 +1,22 @@
+<div>
+  <button onclick="loadUsers()">load users</button>
+  <button onclick="alert('hi there!')">alert</button>
+  <ul id="users">
+      <!-- here come users -->
+  </ul>
+</div>
+
+<script>
+  const $container = $('users');
+  let users = [];
+
+  function loadUsers() {
+    users = $.get('http://awesome.server.com/users');
+
+    users.forEach((user) => {
+        $container.append(
+            `<li>${user.firstname} ${user.lastname}</li>`
+        );
+    });
+  }
+</script>

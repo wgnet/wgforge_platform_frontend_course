@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style id="bx-google-fonts">@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,600,700,800,300italic,400,400italic,600italic,700italic,800italic);</style>
+    <pattern id="pattern-1" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse" viewBox="0 0 100 100">
+      <path d="M 0 0 L 50 0 L 50 100 L 0 100 Z" style="fill: black;"/>
+    </pattern>
+  </defs>
+  <g>
+    <rect x="10.544771687847131" y="16.36485286870575" width="477.2476044893265" height="469.76462811231613" style="fill: rgb(216, 216, 216);" transform="matrix(1, 0, 0, 1, 0, 0)"/>
+    <text x="170.18157958984375" y="32.16224670410156" style="white-space: pre;" transform="matrix(1, 0, 0, 1, 24.943254470825195, 20.78604507446289)"><tspan style="font-size: 26px; font-family: 'Open Sans';">Call Stack</tspan></text>
+  </g>
+  <g style="opacity: 0;">
+    <rect x="21.35350434352874" y="402.98511401424025" width="454.79867535829544" height="70.67255467176437" style="fill: rgb(255, 255, 255); stroke: rgb(109, 109, 109); stroke-width: 5; stroke-linecap: round; stroke-linejoin: round;" transform="matrix(1, 0, 0, 1, 4.926764488220215, -0.621741771697998)"/>
+    <text x="157.7099609375" y="440.4001770019531" style="white-space: pre;" transform="matrix(1, 3.945554476209382e-24, -3.945554476209382e-24, 1, -7.0052876472473145, 4.988700866699217)"><tspan style="font-size: 20px; font-family: 'Open Sans';">console.log(solve(12))</tspan></text>
+  </g>
+  <g style="opacity: 0;">
+    <g>
+      <rect x="21.353504180908203" y="402.985107421875" width="454.7986755371094" height="70.67255401611328" style="fill: rgb(255, 255, 255); stroke: rgb(109, 109, 109); stroke-width: 5; stroke-linecap: round; stroke-linejoin: round;" transform="matrix(1, 0, 0, 1, 3.900688648223877, -84.39115142822267)"/>
+      <text x="157.7099609375" y="440.4001770019531" style="white-space: pre;" transform="matrix(1, 3.945554476209382e-24, -3.945554476209382e-24, 1, 53.64572525024414, -78.78067779541017)"><tspan style="font-size: 20px; font-family: 'Open Sans';">solve(12)</tspan></text>
+    </g>
+  </g>
+  <g style="opacity: 0;">
+    <rect x="21.353504180908203" y="402.985107421875" width="454.7986755371094" height="70.67255401611328" style="fill: rgb(255, 255, 255); stroke: rgb(109, 109, 109); stroke-width: 5; stroke-linecap: round; stroke-linejoin: round;" transform="matrix(1, 0, 0, 1, 2.5562057495117188, -166.7039031982422)"/>
+    <text x="157.7099609375" y="440.4001770019531" style="white-space: pre;" transform="matrix(1, 3.945554476209382e-24, -3.945554476209382e-24, 1, 13.762173652648926, -161.0934600830078)"><tspan style="font-size: 20px; font-family: 'Open Sans';">sum(x, square(x))</tspan></text>
+  </g>
+  <g style="opacity: 0;">
+    <rect x="21.353504180908203" y="402.985107421875" width="454.7986755371094" height="70.67255401611328" style="fill: rgb(255, 255, 255); stroke: rgb(109, 109, 109); stroke-width: 5; stroke-linecap: round; stroke-linejoin: round;" transform="matrix(1, 0, 0, 1, 3.7414798736572266, -250.6795196533203)"/>
+    <text x="157.7099609375" y="440.4001770019531" style="white-space: pre;" transform="matrix(1, 3.945554476209382e-24, -3.945554476209382e-24, 1, 73.61152648925781, -245.06907653808597)"><tspan style="font-size: 20px; font-family: 'Open Sans';">x * x</tspan></text>
+  </g>
+</svg>

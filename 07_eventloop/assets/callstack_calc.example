@@ -1,0 +1,16 @@
+function sum(a, b) {
+    return a + b;
+}
+
+function square(x) {
+    return x * x;
+}
+
+function solve(x) {
+    return sum(x, square(x));
+}
+
+console.log(
+    solve(12)
+);
+// the end!

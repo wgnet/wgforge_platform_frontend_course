@@ -1,0 +1,17 @@
+function getProfileData(name) {
+    return new Promise((resolve, reject) => { /* do magic */ });
+}
+
+function loadUserRepos(username) {
+    return new Promise((resolve, reject) => {
+        getProfileData(username).then(data => {
+            getRepos(data.repos_url).then(reposData => {
+                resolve(reposData);
+            });
+        }).catch(
+            err => reject(err)
+        );
+    });
+}
+
+loadUserRepos('octocat').then(renderReposView);

@@ -1,0 +1,10 @@
+console.log("Hello");
+
+$.getJSON(
+    '//server.com/users',
+    function (data) {
+        console.log(data);
+    }
+);
+
+console.log("people!");

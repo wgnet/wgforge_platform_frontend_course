@@ -1,0 +1,26 @@
+<div>
+  <button onclick="sleep()">sleep</button>
+  <div id="spinner"></div>
+</div>
+
+<script>
+  function sleep() {
+    const now = Date.now();
+    while (Date.now() - now < 3000) {
+      // sleep...
+    }
+  }
+
+  const spinner = document.querySelector('#spinner');
+  let angle = 0;
+
+  function animate() {
+      angle += 16;
+      angle = angle > 360 ? angle - 360 : angle;
+
+      spinner.style.transform = `rotate(${angle}deg)`;
+      animate();
+  }
+
+  animate();
+</script>

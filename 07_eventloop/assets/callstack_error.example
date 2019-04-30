@@ -1,0 +1,13 @@
+function oops() {
+  throw new Error('oops');
+}
+
+function foo() {
+  oops();
+}
+
+function bar() {
+  foo();
+}
+
+bar();

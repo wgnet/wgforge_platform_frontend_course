@@ -8,6 +8,12 @@
 - [00 Вступление](#00-вступление)
 - [01 Основы JS](#01-основы)
 - [02 Функции](#02-функции)
+- [03 Итераторы](#03-итераторы)
+- [04 Классы, прототипы, наследование](#04-классы-прототипы-наследование)
+- [05 HTML + CSS](#05-html-+-css)
+- [06 DOM](#06-dom)
+- [07 Event Loop](#07-event-loop)
+- [08 Callbacks, Promises, Async/await](#08-callbacks-promises-async/await)
 
 ----
 
@@ -74,13 +80,63 @@
 
 ----
 
-----
-
 ## 03 Итераторы
 
 - [Слайды](https://wgnet.github.io/wgforge_platform_frontend_course/03_iterators/)
 
 - [Задание](https://github.com/wgnet/wgforge_platform_frontend_course/tree/master/03_iterators/practice)
+
+[к содержанию ⬆️](#содержание)
+
+----
+
+## 04 Классы, прототипы, наследование
+
+- Live-coding
+
+[к содержанию ⬆️](#содержание)
+
+----
+
+
+## 05 HTML + CSS
+
+- [HTML](https://github.com/wgnet/wgforge_platform_frontend_course/raw/master/05_markup/presentation/HTML.pdf)
+
+- [CSS](https://github.com/wgnet/wgforge_platform_frontend_course/raw/master/05_markup/presentation/CSS.pdf)
+
+- [Проект](https://github.com/wgnet/wgforge_platform_frontend_course/tree/master/05_markup/project)
+
+[к содержанию ⬆️](#содержание)
+
+----
+
+
+## 06 DOM
+
+- [Слайды](https://wgnet.github.io/wgforge_platform_frontend_course/06_dom/)
+
+
+[к содержанию ⬆️](#содержание)
+
+----
+
+
+## 07 Event Loop
+
+- [Слайды](https://wgnet.github.io/wgforge_platform_frontend_course/07_eventloop/)
+
+
+[к содержанию ⬆️](#содержание)
+
+----
+
+
+## 08 Callbacks, Promises, Async/await
+
+- [Слайды](https://wgnet.github.io/wgforge_platform_frontend_course/07_asyncjs/)
+
+- [Задание](https://github.com/PavloKovalov/async-js-workbook)
 
 [к содержанию ⬆️](#содержание)
 

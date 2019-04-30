@@ -1,0 +1,15 @@
+function loadUsersRepos(usernames) {
+    return Promise.all(
+        usernames.map(user => getProfileData(user))
+    ).then(profiles => {
+        return Promise.all(
+            profiles.map(data => getRepos(data.repos_url))
+        )
+    }).catch( err => { throw err } );
+}
+
+loadUsersRepos(['brendaneich', 'douglascrockford', 'getify']).then(repos => {
+    // repos[0] => brendaneich
+    // repos[1] => douglascrockford
+    // repos[2] => getify
+});

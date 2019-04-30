@@ -1,0 +1,17 @@
+function loadUserRepos(username, callback) {
+    getProfileData(username, function (err, data) {
+        if (err) {
+            console.error(err);
+            callback(err);
+        } else {
+            getRepos(data.repos_url, function (err, reposData) {
+                if (err) {
+                    console.error(err);
+                    callback(err);
+                } else {
+                    callback(null, reposData);
+                }
+            });
+        }
+    });
+}

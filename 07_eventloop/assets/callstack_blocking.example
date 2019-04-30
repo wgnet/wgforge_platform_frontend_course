@@ -1,0 +1,13 @@
+function sleep(s) {
+    const now = Date.now();
+    const ms = s * 1000;
+
+    while (Date.now() - now < ms) {
+        // zZzZz-z-z...
+    }
+}
+
+console.log('I go to bed...');
+sleep(10);
+console.log('I\'m back!');
+// the end!
