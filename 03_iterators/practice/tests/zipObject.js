@@ -10,6 +10,11 @@ test('zipObject', t => {
 
   t.test('zipObject corresponding values', tt => {
     tt.deepEqual(zipObject(props, values), _zipObject(props, values));
+    tt.deepEqual(
+      zipObject(['a', 'b'], [1]),
+      { a: 1, b: undefined },
+      'should assign "undefined" values for extra "keys"'
+    );
     tt.end();
   });
 
