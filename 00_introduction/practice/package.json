@@ -8,11 +8,11 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@babel/core": "^7.9.0",
-    "@babel/node": "^7.8.7",
-    "@babel/preset-env": "^7.9.0",
+    "@babel/core": "^7.12.1",
+    "@babel/node": "^7.12.1",
+    "@babel/preset-env": "^7.12.1",
     "tap-spec": "^5.0.0",
-    "tape": "^4.13.2",
+    "tape": "^5.0.1",
     "tape-catch": "^1.0.6"
   }
 }
