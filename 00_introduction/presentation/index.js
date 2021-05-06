@@ -29,7 +29,8 @@ import QuestionsSlide from '../../common/slides/questions';
 import createTheme from 'spectacle/lib/themes/default';
 
 const code = {
-  smoosh: require('raw-loader!../assets/smoosh.js.example')
+  smoosh: require('raw-loader!../assets/smoosh.js.example'),
+  flat: require('raw-loader!../assets/flat.js.example')
 };
 
 const images = {
@@ -47,7 +48,8 @@ const theme = createTheme(
     primary: 'white',
     secondary: '#1F2022',
     tertiary: '#03A9FC',
-    quaternary: '#CECECE'
+    quaternary: '#CECECE',
+    javascript: '#f7df1e'
   },
   {
     primary: 'Montserrat',
@@ -392,7 +394,11 @@ export default class Presentation extends React.Component {
           </List>
 
           <Text textAlign="left">
-            ECMAScript <b>2016</b>, <b>2017</b>, <b>2018</b>, <b>2019</b>...
+            ECMAScript <b>2016</b>,{' '}
+            <small>
+              <b>2017</b>, <b>2018</b>, <b>2019</b>, <b>2020</b>,
+            </small>{' '}
+            <b>2021</b>...
           </Text>
         </Slide>
 
@@ -465,7 +471,7 @@ export default class Presentation extends React.Component {
               <Appear order={42}>
                 <div>
                   <Heading size={6} margin="50px 0 20px">
-                    Stage 4 🚀
+                    <b>ES2019</b> 🚀
                   </Heading>
 
                   <Code>Array.prototype.flat</Code>
@@ -480,6 +486,19 @@ export default class Presentation extends React.Component {
               </Appear>
             </Fill>
           </Layout>
+        </Slide>
+
+        <Slide>
+          <Heading size={6}>
+            <s>#SmooshGate</s>
+          </Heading>
+          <Heading size={5}>ES2019</Heading>
+          <div>
+            <Heading>
+              <Code>Array.prototype.flat</Code>
+            </Heading>
+            <CodePane theme="light" textSize={32} lang="javascript" source={code.flat} />
+          </div>
         </Slide>
 
         <Slide>
@@ -498,6 +517,30 @@ export default class Presentation extends React.Component {
             <ListItem>Stage 1</ListItem>
           </List>
 
+          <Heading textAlign="left" margin="50px 0 20px" size={6}>
+            <Link textColor="secondary" href="https://github.com/tc39/proposal-pipeline-operator">
+              Pipeline Operator
+            </Link>
+          </Heading>
+          <List>
+            <ListItem>представлен в марте 2015</ListItem>
+            <ListItem>Stage 1</ListItem>
+          </List>
+          <Code>let result = "hello"</Code>
+          <br />
+          <Code>|> doubleSay</Code>
+          <br />
+          <Code>|> capitalize</Code>
+          <br />
+          <Code>|> exclaim;</Code>
+        </Slide>
+
+        <Slide>
+          <Heading textColor="secondary" fit>
+            Полезные (но это не точно) предложения,
+            <br /> которые ждут своего времени:
+          </Heading>
+          <br />
           <Heading textAlign="left" margin="50px 0 20px" size={6}>
             <Link textColor="secondary" href="https://github.com/tc39/proposal-bind-operator">
               Синтаксис привязки контекста функций – This-bind Syntax (::)

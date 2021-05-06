@@ -142,4 +142,4 @@
 
 ----
 
-© 2019 Wargaming.net
+© 2019-2021 Wargaming.net
