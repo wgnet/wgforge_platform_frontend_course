@@ -10,11 +10,13 @@ module.exports = {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js'
   },
+  optimization: {
+    moduleIds: 'named'
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: './index.html'
     }),
-    // new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin()
   ],
   module: {
