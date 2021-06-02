@@ -7,6 +7,7 @@ import {
   Appear,
   BlockQuote,
   Cite,
+  Code,
   Deck,
   Fill,
   Heading,
@@ -73,6 +74,9 @@ Symbol('password') === Symbol('password')
 // false
 Symbol.for('password') === Symbol.for('password')
 // true
+let key = Symbol.for('bazinga')
+console.log(Symbol.keyFor(key))
+// 'bazinga'
 `.trim();
 
 let symbolBrief2 = `
@@ -80,6 +84,55 @@ const symPwd = Symbol('password');
 console.log(symPwd.description); // ES2019
 // 'password' 👌
 `.trim();
+
+let symbolIterIface = `
+someObject[Symbol.iterator] = function() {
+  ...
+  return {
+    next: function() {
+      return { value: "wassup", done: false };
+    }
+  };
+};
+`.trim();
+
+let genSpec = `
+function* gen() {
+  yield 'hello';
+}
+`.trim();
+
+let genInfinite = `
+function* count() {
+  let i = 0;
+  while (true) {
+    yield i++;
+  }
+}
+`.trim();
+
+let genYield = `
+function* count() {
+  let i = 0;
+  while (true) {
+    let current = yield i++;
+    if (current) {
+      i = 0;
+    }
+  }
+}
+`.trim();
+
+let genYieldUsage = `
+const counter = count();
+console.log(counter.next().value); // 0
+console.log(counter.next().value); // 1
+console.log(counter.next().value); // 2
+console.log(counter.next(true).value); // 0
+console.log(counter.next().value); // 1
+
+`.trim();
+
 
 const code = {
   forInArray: 'for (let i in [1, 2, 3, 4, 5]) { \n    console.log(i);\n}',
@@ -94,7 +147,12 @@ const code = {
   forOfObject,
   forOfObjectSymbol,
   symbolBrief,
-  symbolBrief2
+  symbolBrief2,
+  symbolIterIface,
+  genSpec,
+  genInfinite,
+  genYield,
+  genYieldUsage,
 };
 
 const stylish = css({
@@ -197,14 +255,14 @@ export default class Presentation extends React.Component {
 
         <Slide>
           <Heading margin={20} size={5}>
-            String
+            String 🎻
           </Heading>
           <CodePane textSize={32} theme={CODE_THEME} lang="javascript" source={code.forOfString} />
 
           <Appear>
             <div>
               <Heading margin="50px 0 20px" size={5}>
-                Set
+                Set 🥞
               </Heading>
 
               <CodePane textSize={32} theme={CODE_THEME} lang="javascript" source={code.forOfSet} />
@@ -253,7 +311,7 @@ export default class Presentation extends React.Component {
 
         <Slide>
           <Heading margin={20} size={5}>
-            итерируем Object
+            how to iterate Objects
           </Heading>
 
           <Appear>
@@ -290,13 +348,13 @@ export default class Presentation extends React.Component {
 
         <Slide>
           <Heading margin={20} size={5}>
-            Символ
+            Symbol
           </Heading>
 
           <Appear>
             <div>
               <CodePane
-                textSize={32}
+                textSize={28}
                 theme={CODE_THEME}
                 lang="javascript"
                 source={code.forOfObjectSymbol}
@@ -306,7 +364,7 @@ export default class Presentation extends React.Component {
           <Appear>
             <div>
               <CodePane
-                textSize={32}
+                textSize={28}
                 theme={CODE_THEME}
                 lang="javascript"
                 source={code.symbolBrief}
@@ -316,7 +374,7 @@ export default class Presentation extends React.Component {
           <Appear>
             <div>
               <CodePane
-                textSize={32}
+                textSize={28}
                 theme={CODE_THEME}
                 lang="javascript"
                 source={code.symbolBrief2}
@@ -326,7 +384,7 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide>
-          <Heading fit margin={20} size={5}>
+          <Heading margin={20} size={5}>
             <Link
               textColor="secondary"
               href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Iteration_protocols"
@@ -334,11 +392,85 @@ export default class Presentation extends React.Component {
               [Symbol.iterator]
             </Link>
           </Heading>
+          <Appear>
+            <div>
+              <CodePane
+                textSize={32}
+                theme={CODE_THEME}
+                lang="javascript"
+                source={code.symbolIterIface}
+              />
+            </div>
+          </Appear>
         </Slide>
         <Slide>
           <Heading fit margin={20} size={5} className={stylish}>
             // live-coding<span className={lineStyle}>&nbsp;</span>
           </Heading>
+        </Slide>
+        <Slide>
+          <Heading fit margin={20} size={5} className={stylish}>
+            – вопросы?...
+            <br />– а что такое <span style={{ color: '#ff0028' }}>генераторы</span>?<br />– 😤
+          </Heading>
+        </Slide>
+
+        <Slide>
+          <Heading size={6}>Генератор</Heading>
+          <Appear>
+            <div fit>
+              это <b>объект</b>, возвращаемый{' '}
+              <b style={{ color: '#ff0028' }}>функцией-генератором</b> и соответствующий как{' '}
+              <b>"итерируемому"</b> протоколу, так и протоколу <b>"итератор"</b>.
+            </div>
+          </Appear>
+        </Slide>
+        <Slide>
+          <Heading size={5}>функция является генератором если:</Heading>
+          <List>
+            <Appear>
+              <ListItem>
+                объявлена с помощью <Code>function*</Code>
+              </ListItem>
+            </Appear>
+            <Appear>
+              <ListItem>
+                содержит хотя бы один <Code>yield</Code>
+              </ListItem>
+            </Appear>
+          </List>
+          <div>
+          <Appear>
+            <div>
+              <CodePane textSize={28} theme={CODE_THEME} lang="javascript" source={code.genSpec} />
+            </div>
+          </Appear>
+          </div>
+        </Slide>
+
+        <Slide>
+          <Heading size={6}>бесконечный генератор</Heading>
+          <br/>
+          <Appear>
+            <div>
+              <CodePane textSize={32} theme={CODE_THEME} lang="javascript" source={code.genInfinite} />
+            </div>
+          </Appear>
+        </Slide>
+
+        <Slide>
+          <Heading size={6}>передача значений в генератор</Heading>
+          <br/>
+          <Appear>
+            <div>
+              <CodePane textSize={28} theme={CODE_THEME} lang="javascript" source={code.genYield} />
+            </div>
+          </Appear>
+          <Appear>
+            <div>
+              <CodePane textSize={28} theme={CODE_THEME} lang="javascript" source={code.genYieldUsage} />
+            </div>
+          </Appear>
         </Slide>
       </Deck>
     );
