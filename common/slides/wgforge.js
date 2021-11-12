@@ -17,13 +17,14 @@ const lineStyle = css({
     content: '""',
     position: 'absolute',
     display: 'inline-block',
-    width: '160px',
-    height: '10px',
+    width: '255px',
+    height: '12px',
     background: '#ff0028',
-    transform: 'rotate(-5.51deg)',
-    top: '16px',
-    left: '-150px',
-    zIndex: -1
+    transform: 'rotate(-2.51deg)',
+    top: '-4px',
+    left: '-255px',
+    zIndex: -1,
+    opacity: 0.3
   }
 });
 
@@ -35,8 +36,12 @@ export default function FrontSlide() {
       <Typeface googleFont="Roboto">
         <Image src={images.logo} width={1000} marginBotton={50} />
         <br />
-        <Heading caps fit textColor="secondary">
-          Platform <span style={noWrap}>FRONT-END</span>
+        <Heading textColor="secondary" style={{ fontSize: '24px' }}>
+          <span style={{ fontVariant: 'small-caps' }}>powered by</span>
+          <br />
+          <span style={{ textTransform: 'uppercase' }}>
+            Platform <span style={noWrap}>FRONT-END</span>
+          </span>
           <span className={lineStyle}>&nbsp;</span>
         </Heading>
       </Typeface>

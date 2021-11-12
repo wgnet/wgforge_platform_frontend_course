@@ -56,24 +56,19 @@ const lineStyle = css({
 // Require CSS
 require('normalize.css');
 
-const theme = createTheme(
-  {
-    primary: 'white',
-    secondary: '#1F2022',
-    tertiary: '#03A9FC',
-    quaternary: '#CECECE',
-    jsYellow: '#f3df49',
-    jsSlave: '#2e2e2c'
-  },
-  {
-    primary: 'Montserrat',
-    secondary: 'Helvetica'
-  }
-);
-
-const txtColor = v => ({
-  color: v
+const colors = {
+  primary: '#fff',
+  secondary: '#000',
+  tertiary: '#03A9FC',
+  quaternary: '#CECECE',
+  jsYellow: '#f3df49',
+  jsSlave: '#7a7a7a'
+};
+const theme = createTheme(colors, {
+  primary: 'Arial',
+  secondary: 'Helvetica'
 });
+console.log(theme);
 
 const shadowStyle = style => {
   const shaddow = {
@@ -138,53 +133,136 @@ export default class Presentation extends React.Component {
     return (
       <Deck transition={['slide']} transitionDuration={500} theme={theme}>
         <FrontSlide />
-        <Slide>
+        {/* <Slide>
           <Heading>⏰ 📵 🔞 🗣 ✌️</Heading>
-        </Slide>
+        </Slide> */}
 
-        <Slide bgColor="black" notes="">
-          <Heading size={1} fit textColor="#f7df1e">
+        <Slide>
+          <Heading
+            size={1}
+            fit
+            textColor={colors.jsYellow}
+            style={{ WebkitTextStroke: '0.25px black' }}
+          >
             JavaScript
           </Heading>
           <Appear>
-            <Heading size={2} caps textColor="white" className={stylish}>
+            <Heading size={2} caps textColor="red" className={stylish}>
               что ты такое?
             </Heading>
           </Appear>
         </Slide>
 
-        <Slide bgColor="jsSlave">
-          <BlockQuote>
-            <Quote textColor="white">JavaScript</Quote>
-            <Quote textColor="jsYellow">высокоуровневый…</Quote>
-            <Quote textColor="jsYellow">мультипарадигменный…</Quote>
-            <Quote textColor="jsYellow">динамическая типизация…</Quote>
-            <Quote textColor="jsYellow">слабая типизация…</Quote>
-            <Quote textColor="jsYellow">интерпретируемый…</Quote>
-            <Cite>Wikipedia</Cite>
+        <Slide>
+          <Heading
+            textAlign="left"
+            size={4}
+            style={{ WebkitTextStroke: '0.75px black', color: colors.jsYellow }}
+          >
+            JavaScript
+          </Heading>
+          <BlockQuote textAlign="left">
+            <Quote style={{ fontSize: '3rem' }} textColor="jsSlave">
+              высокоуровневый…
+            </Quote>
+            <Quote style={{ fontSize: '3rem' }} textColor="jsSlave">
+              мультипарадигменный…
+            </Quote>
+            <Quote style={{ fontSize: '3rem' }} textColor="jsSlave">
+              динамическая типизация…
+            </Quote>
+            <Quote style={{ fontSize: '3rem' }} textColor="jsSlave">
+              слабая типизация…
+            </Quote>
+            <Quote style={{ fontSize: '3rem' }} textColor="secondary">
+              интерпретируемый…
+            </Quote>
+            <Quote style={{ fontSize: '3rem' }} textAlign="right">
+              <Cite style={{ color: colors.tertiary }}>
+                <a
+                  target="_blank"
+                  href="https://ru.wikipedia.org/wiki/JavaScript"
+                  style={{ textDecoration: 'none', color: colors.tertiary }}
+                >
+                  Wikipedia
+                </a>
+              </Cite>
+            </Quote>
           </BlockQuote>
         </Slide>
 
-        <Slide bgColor="jsSlave">
-          <Heading size={2} fit textColor="primary">
+        <Slide>
+          <Heading size={2} fit>
             как выполняется
           </Heading>
-          <Heading size={1} fit textColor="#f3df49">
+          <Heading
+            size={1}
+            fit
+            textColor={colors.jsYellow}
+            style={{ WebkitTextStroke: '0.25px black' }}
+          >
             JavaScript-код
           </Heading>
-          <Heading size={2} textColor="primary">
-            в браузере
-          </Heading>
+          <Heading size={2}>в браузере?</Heading>
         </Slide>
 
-        <Slide bgColor="jsSlave">
+        <Slide>
+          <Heading textAlign="left" size={4}>
+            этапы:
+          </Heading>
           <BlockQuote>
-            <Quote textSize={58} textColor="white">
+            <Quote style={{ fontSize: '3rem' }} textColor="secondary">
+              html-парсер ⬇
+            </Quote>
+            <Quote style={{ fontSize: '3rem' }} textColor="secondary">
+              загрузка js-скриптов ⬇
+            </Quote>
+            <Quote style={{ fontSize: '3rem' }} textColor="secondary">
+              токенизация ⬇
+            </Quote>
+            <Quote style={{ fontSize: '3rem' }} textColor="secondary">
+              парсинг/препарсинг ⬇
+            </Quote>
+            <Quote
+              style={{ fontSize: '3rem', WebkitTextStroke: '0.75px black', color: colors.jsYellow }}
+            >
+              интерпретация ⬇
+            </Quote>
+            <Quote style={{ fontSize: '3rem' }} textColor="secondary">
+              оптимизирующий компилятор ⬇⬆
+            </Quote>
+            <Quote style={{ fontSize: '3rem' }} textAlign="right">
+              <Cite style={{ color: colors.tertiary }}>
+                <a
+                  target="_blank"
+                  href="https://www.youtube.com/watch?v=voDhHPNMEzg"
+                  style={{ textDecoration: 'none', color: colors.tertiary }}
+                >
+                  🎥 Chrome University 2018: Life of a Script 👀{' '}
+                </a>
+              </Cite>
+            </Quote>
+          </BlockQuote>
+        </Slide>
+
+        <Slide>
+          <BlockQuote>
+            <Quote textSize={60} textColor="secondary">
               До 2008-2009 гг. движок JavaScript (называемый также интерпретатор JavaScript и
               реализация JavaScript) реализовывался как интерпретатор, считывающий и исполняющий
               исходный код на JavaScript.
             </Quote>
-            <Cite>Wikipedia</Cite>
+            <Quote style={{ fontSize: '3rem' }} textAlign="right">
+              <Cite style={{ color: colors.tertiary }}>
+                <a
+                  target="_blank"
+                  href="https://ru.wikipedia.org/wiki/Движок_JavaScript"
+                  style={{ textDecoration: 'none', color: colors.tertiary }}
+                >
+                  Wikipedia
+                </a>
+              </Cite>
+            </Quote>
           </BlockQuote>
 
           <Notes>
@@ -196,29 +274,36 @@ export default class Presentation extends React.Component {
           </Notes>
         </Slide>
 
-        <Slide bgColor="jsSlave">
-          <Heading size={2} textColor="white">
+        <Slide>
+          <Heading size={2}>
             JavaScript движок
-            <Text italic bold fit textColor="jsYellow">
+            <Text
+              italic
+              bold
+              fit
+              textColor={colors.jsYellow}
+              style={{ WebkitTextStroke: '0.25px black' }}
+            >
               однопоточный
             </Text>
           </Heading>
           <Text bold fit>
             с единым стеком вызовов
           </Text>
-          <Text bold fit>
+          <Text bold fit textColor="jsSlave">
             в определенный момент времени выполняет
           </Text>
           <Text bold fit>
-            только <span style={txtColor('#ddd')}>какую-то одну задачу</span>
+            только{' '}
+            <span style={{ color: colors.jsYellow, WebkitTextStroke: '0.25px black' }}>
+              какую-то одну задачу
+            </span>
           </Text>
         </Slide>
 
         <CodeSlide
-          lang="javascript"
+          lang="js"
           code={code.callstack}
-          theme="external"
-          bgColor="jsSlave"
           ranges={[
             { loc: [0, 15], title: 'интерпретатор' },
             { loc: [0, 4], note: 'define function "getTheAnswer"' },
@@ -240,12 +325,11 @@ export default class Presentation extends React.Component {
           notes="what engine consists of<br>
           the heap - for memory allocation<br>
           callstack - the sake of execution"
-          bgColor="jsSlave"
         >
           <Heading fit size={4} textColor="jsYellow" style={shadowStyle('light')}>
             V8, SpiderMonkey, ChakraCore
           </Heading>
-          <Heading size={3} textColor="#f5f5f5" style={shadowStyle('dark')}>
+          <Heading size={3} textColor="quaternary" style={shadowStyle('dark')}>
             heap + call stack
           </Heading>
           <Layout>
@@ -464,7 +548,7 @@ export default class Presentation extends React.Component {
 
         <CodeSlide
           transition={['slide']}
-          lang="js"
+          lang="javascript"
           notes="to understand recursion you must understand recursion<br>
             but js engine doesn't care<br>
             it will watch for your code<br>
@@ -475,12 +559,30 @@ export default class Presentation extends React.Component {
             { loc: [0, 4], note: '' },
             { loc: [4, 6], note: '' },
             { loc: [1, 3], note: '[ foo() ]' },
-            { loc: [1, 3], note: '[ foo() ]\n'.repeat(2) },
-            { loc: [1, 3], note: '[ foo() ]\n'.repeat(3) },
-            { loc: [1, 3], note: '[ foo() ]\n'.repeat(5) },
-            { loc: [1, 3], note: '[ foo() ]\n'.repeat(7) },
-            { loc: [1, 3], note: '[ foo() ]\n'.repeat(13) },
-            { loc: [1, 3], note: '[ foo() ]\n'.repeat(21) },
+            {
+              loc: [1, 3],
+              note: <span dangerouslySetInnerHTML={{ __html: '[ foo() ]<br>'.repeat(2) }} />
+            },
+            {
+              loc: [1, 3],
+              note: <span dangerouslySetInnerHTML={{ __html: '[ foo() ]<br>'.repeat(3) }} />
+            },
+            {
+              loc: [1, 3],
+              note: <span dangerouslySetInnerHTML={{ __html: '[ foo() ]<br>'.repeat(7) }} />
+            },
+            {
+              loc: [1, 3],
+              note: <span dangerouslySetInnerHTML={{ __html: '[ foo() ]<br>'.repeat(11) }} />
+            },
+            {
+              loc: [1, 3],
+              note: <span dangerouslySetInnerHTML={{ __html: '[ foo() ]<br>'.repeat(21) }} />
+            },
+            {
+              loc: [1, 3],
+              note: <span dangerouslySetInnerHTML={{ __html: '[ foo() ]<br>'.repeat(37) }} />
+            },
             {
               loc: [1, 3],
               note: React.createElement('img', {
@@ -492,7 +594,12 @@ export default class Presentation extends React.Component {
         />
 
         <Slide notes="what does it mean from engine point?">
-          <Heading fit size={2} textColor="jsYellow" style={shadowStyle('light')}>
+          <Heading
+            fit
+            size={2}
+            textColor="jsYellow"
+            style={Object.assign({ WebkitTextStroke: '0.25px black' }, shadowStyle('light'))}
+          >
             …blocking…
           </Heading>
         </Slide>
@@ -533,22 +640,33 @@ export default class Presentation extends React.Component {
         />
 
         <Slide
-          bgColor="jsSlave"
           notes="what does it mean from browser point<br>
             if we call some have computation<br>
             browser will be 'frozen'<br>
             and won't react until callstack is unblocked"
         >
-          <Layout>
-            <Fill>
-              <Heading size={3} textColor="jsYellow">
+          <Layout style={{ marginTop: '0px' }}>
+            <Fill style={{ marginRight: '1rem' }}>
+              <Heading
+                style={{
+                  fontSize: '60px',
+                  color: colors.jsYellow,
+                  WebkitTextStroke: '0.75px black'
+                }}
+              >
                 index.html
               </Heading>
-              <CodePane textSize={18} lang="html" source={code.blockingDemo} />
+              <CodePane textSize={14} lang="html" source={code.blockingDemo} />
             </Fill>
-            <Fill>
-              <Heading size={3} textColor="jsYellow">
-                browser
+            <Fill style={{ marginLeft: '1rem' }}>
+              <Heading
+                style={{
+                  fontSize: '60px',
+                  color: colors.jsYellow,
+                  WebkitTextStroke: '0.75px black'
+                }}
+              >
+                The Browser
               </Heading>
               <div>&nbsp;</div>
               <SleepySpinny />
@@ -564,18 +682,29 @@ export default class Presentation extends React.Component {
           then we need to decode recieved bytes<br>
           translate them in language object<br>
           so if ajax would be sync end user will have problems"
-          bgColor="jsSlave"
         >
           <Layout>
-            <Fill>
-              <Heading size={3} textColor="jsYellow">
+            <Fill style={{ marginRight: '1rem' }}>
+              <Heading
+                style={{
+                  fontSize: '60px',
+                  color: colors.jsYellow,
+                  WebkitTextStroke: '0.75px black'
+                }}
+              >
                 index.html
               </Heading>
-              <CodePane textSize={18} lang="html" source={code.blockingAjax} />
+              <CodePane textSize={16} lang="html" source={code.blockingAjax} />
             </Fill>
-            <Fill>
-              <Heading size={3} textColor="jsYellow">
-                browser
+            <Fill style={{ marginRight: '1rem' }}>
+              <Heading
+                style={{
+                  fontSize: '60px',
+                  color: colors.jsYellow,
+                  WebkitTextStroke: '0.75px black'
+                }}
+              >
+                The Browser
               </Heading>
               <div>&nbsp;</div>
               <FakeAjax />
@@ -584,7 +713,12 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide>
-          <Heading size={4} fit textColor="jsYellow" style={shadowStyle('light')}>
+          <Heading
+            size={4}
+            fit
+            textColor="jsYellow"
+            style={Object.assign({ WebkitTextStroke: '0.25px black' }, shadowStyle('light'))}
+          >
             …но где же вся асинхронная &#x2728; магия?!?!
           </Heading>
           <Appear fid="1">
@@ -592,9 +726,20 @@ export default class Presentation extends React.Component {
           </Appear>
         </Slide>
 
-        <Slide bgColor="jsSlave">
-          <Heading textColor="jsYellow">the</Heading>
-          <Heading fit textColor="jsYellow">
+        <Slide>
+          <Heading
+            style={{
+              WebkitTextStroke: '1px black',
+              color: colors.secondary,
+              fontVariant: 'small-caps'
+            }}
+          >
+            the
+          </Heading>
+          <Heading
+            fit
+            style={{ WebkitTextStroke: '0.5px black', color: colors.jsYellow, marginTop: '-7%' }}
+          >
             Browser
           </Heading>
         </Slide>
@@ -603,28 +748,27 @@ export default class Presentation extends React.Component {
           notes="exept JS engine browser has plenty of stuff</br>
           WEB APIs - the web platform parts<br>
           callback queue and mysterious event loop"
+          style={{ marginTop: '-5%' }}
         >
           <Heading size={4}>внутри браузера</Heading>
 
           <Image height="70vh" src={images.browser.replace('/', '')} />
         </Slide>
 
-        <Slide notes="let's start on simple and check how timeout works" bgColor="jsSlave">
-          <Heading size={4} textColor="jsYellow">
-            How does setTimeout works?
+        <Slide notes="let's start on simple and check how timeout works">
+          <Heading
+            style={{ fontSize: '60px', color: colors.jsYellow, WebkitTextStroke: '0.75px black' }}
+          >
+            Как работает setTimeout?
           </Heading>
 
-          <Layout>
-            <Fill>
-              <Heading size={5} textColor="#eee">
-                code
-              </Heading>
+          <Layout style={{ marginTop: '5%' }}>
+            <Fill style={{ marginRight: '1rem' }}>
+              <Heading style={{ fontSize: '29px', color: colors.secondary }}>my-awesome.js</Heading>
               <CodePane textSize={26} lang="js" source={code.setTimeout} />
             </Fill>
-            <Fill>
-              <Heading size={5} textColor="#eee">
-                console
-              </Heading>
+            <Fill style={{ marginLeft: '1rem' }}>
+              <Heading style={{ fontSize: '29px', color: colors.secondary }}>console</Heading>
               <Timeouter />
             </Fill>
           </Layout>
@@ -646,29 +790,29 @@ export default class Presentation extends React.Component {
                 dangerouslySetInnerHTML: { __html: '&nbsp;' }
               })
             },
-            { loc: [2, 6], note: '[ setTimeout(...) ]' },
-            { loc: [2, 6], note: '  ' },
-            { loc: [6, 7], note: '[ console.log("people!") ]' },
-            { loc: [7, 8], note: '  ' },
-            { loc: [7, 8], note: '[ anonymous function ]' },
+            { loc: [2, 8], note: '[ setTimeout(...) ]' },
+            { loc: [2, 8], note: '  ' },
+            { loc: [9, 10], note: '[ console.log("people!") ]' },
+            { loc: [10, 11], note: ' EOF ' },
+            { loc: [3, 6], note: '[ anonymous function ]' },
             {
-              loc: [3, 4],
+              loc: [4, 5],
               note: (
                 <div>
-                  [ console.log("Wargaming") ]<br />[ anonymous function ]
+                  [ console.log("WGForge") ]<br />[ anonymous function ]
                 </div>
               )
             },
-            { loc: [3, 4], note: '[ anonymous function ]' },
-            { loc: [3, 4], note: '  ' },
+            { loc: [3, 6], note: '[ anonymous function ]' },
+            { loc: [3, 6], note: '  ' },
             {
-              loc: [7, 8],
+              loc: [10, 11],
               note: React.createElement(
                 'a',
                 {
                   target: '_blank',
                   href:
-                    'http://latentflip.com/loupe/?code=Y29uc29sZS5sb2coIkhlbGxvIik7CgpzZXRUaW1lb3V0KGZ1bmN0aW9uICgpIHsKICBjb25zb2xlLmxvZygiV2FyZ2FtaW5nIik7Cn0sIDMwMDApOwoKY29uc29sZS5sb2coInBlb3BsZSEiKTsK!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D',
+                    'http://latentflip.com/loupe/?code=Y29uc29sZS5sb2coIkhlbGxvIik7CgpzZXRUaW1lb3V0KAogICAgZnVuY3Rpb24gKCkgewogICAgICAgIGNvbnNvbGUubG9nKCJXR0ZvcmdlIik7CiAgICB9LCAKICAgIDMwMDAKKTsKCmNvbnNvbGUubG9nKCJwZW9wbGUhIik7Cg%3D%3D!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D',
                   style: {
                     color: 'yellow'
                   }
@@ -715,29 +859,44 @@ export default class Presentation extends React.Component {
           ]}
         />
 
-        <Slide note="">
-          <Image height="70vh" src={images.browser.replace('/', '')} />
+        <Slide>
+          <Image
+            style={{ marginTop: '-10%' }}
+            height="70vh"
+            src={images.browser.replace('/', '')}
+          />
         </Slide>
 
-        <Slide bgColor="jsSlave">
-          <Heading fit size={3} textColor="jsYellow">
-            the Event Loop
+        <Slide>
+          <Heading
+            size={6}
+            style={{
+              WebkitTextStroke: '1px black',
+              color: colors.secondary,
+              fontVariant: 'small-caps'
+            }}
+          >
+            the
+          </Heading>
+          <Heading
+            fit
+            style={{ marginTop: '-20px', color: colors.jsYellow, WebkitTextStroke: '0.25px black' }}
+          >
+            Event Loop
           </Heading>
           <Appear fid="1">
             <Link
+              textColor="secondary"
               href="http://latentflip.com/loupe/?code=Y29uc29sZS5sb2coIkhpISIpOwoKJC5vbignYnV0dG9uJywgJ2NsaWNrJywgZnVuY3Rpb24gb25DbGljaygpIHsKICAgIGNvbnNvbGUubG9nKCdZb3UgY2xpY2tlZCB0aGUgYnV0dG9uIScpOyAgICAKfSk7CgpzZXRUaW1lb3V0KGZ1bmN0aW9uIHRpbWVvdXQoKSB7CiAgICBjb25zb2xlLmxvZygiQ2xpY2sgdGhlIGJ1dHRvbiEiKTsKfSwgNTAwMCk7Cgpjb25zb2xlLmxvZygiV2VsY29tZSB0byBsb3VwZS4iKTs%3D!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D"
-              textColor="jsYellow"
             >
               demo time!
             </Link>
           </Appear>
         </Slide>
 
-        <Slide bgColor="#333">
-          <Heading size={2} textColor="jsYellow">
-            подведем итог
-          </Heading>
-          <List textColor="#eee">
+        <Slide>
+          <Heading size={4}>подведем итог</Heading>
+          <List>
             <Appear>
               <ListItem>JavaScript однопоточный</ListItem>
             </Appear>
@@ -753,48 +912,70 @@ export default class Presentation extends React.Component {
           </List>
         </Slide>
 
-        <Slide bgColor="#f3f3f3">
-          <Heading size={5}>что почитать?</Heading>
+        <Slide>
+          <Heading size={5}>что почитать? что посмотреть?</Heading>
 
-          <List>
-            <ListItem>
-              <Link
-                textColor="black"
-                href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop"
-              >
-                MDN - Concurrency model and Event Loop
-              </Link>
-            </ListItem>
-            <ListItem>
-              <Link
-                textColor="black"
-                href="http://altitudelabs.com/blog/what-is-the-javascript-event-loop/"
-              >
-                What is the JavaScript Event Loop?
-              </Link>
-            </ListItem>
-            <ListItem>
-              <Link
-                textColor="black"
-                href="http://blog.carbonfive.com/2013/10/27/the-javascript-event-loop-explained/"
-              >
-                The JavaScript Event Loop: Explained
-              </Link>
-            </ListItem>
-            <ListItem>
-              <Link textColor="black" href="https://www.youtube.com/watch?v=8aGhZQkoFbQ">
-                Philip Roberts: What the heck is the event loop anyway? | JSConf EU 2014
-              </Link>
-            </ListItem>
-            <ListItem>
-              <Link
-                textColor="black"
-                href="https://nolanlawson.com/2015/09/29/indexeddb-websql-localstorage-what-blocks-the-dom/"
-              >
-                IndexedDB, WebSQL, LocalStorage – what blocks the DOM?
-              </Link>
-            </ListItem>
-          </List>
+          <div style={{ textAlign: 'left', lineHeight: '3rem' }}>
+            <Link
+              textColor="black"
+              target="_blank"
+              href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop"
+            >
+              📖 MDN - Concurrency model and Event Loop
+            </Link>
+            <br />
+            <Link
+              textColor="black"
+              target="_blank"
+              href="http://altitudelabs.com/blog/what-is-the-javascript-event-loop/"
+            >
+              📖 What is the JavaScript Event Loop?
+            </Link>
+            <br />
+            <Link
+              textColor="black"
+              target="_blank"
+              href="http://blog.carbonfive.com/2013/10/27/the-javascript-event-loop-explained/"
+            >
+              📖 The JavaScript Event Loop: Explained
+            </Link>
+            <br />
+
+            <Link
+              textColor="black"
+              target="_blank"
+              href="https://nolanlawson.com/2015/09/29/indexeddb-websql-localstorage-what-blocks-the-dom/"
+            >
+              📖 IndexedDB, WebSQL, LocalStorage – what blocks the DOM?
+            </Link>
+            <br />
+
+            <Link
+              textColor="black"
+              target="_blank"
+              href="https://www.youtube.com/watch?v=8aGhZQkoFbQ"
+            >
+              🎥 Philip Roberts: What the heck is the event loop anyway? | JSConf EU 2014
+            </Link>
+            <br />
+
+            <Link
+              textColor="black"
+              target="_blank"
+              href="https://www.youtube.com/watch?v=voDhHPNMEzg"
+            >
+              🎥 Chrome University 2018: Life of a Script 👀
+            </Link>
+            <br />
+
+            <Link
+              textColor="black"
+              target="_blank"
+              href="https://www.youtube.com/watch?v=7Rrv9qFMWNM"
+            >
+              🎥 The main thread is overworked & underpaid (Chrome Dev Summit 2019)
+            </Link>
+          </div>
         </Slide>
 
         <Slide>

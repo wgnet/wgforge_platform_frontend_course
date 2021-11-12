@@ -1,7 +1,10 @@
 console.log("Hello");
 
-setTimeout(function () {
-  console.log("Wargaming");
-}, 3000);
+setTimeout(
+  function () {
+    console.log("WGForge");
+  },
+  3000
+);
 
 console.log("people!");

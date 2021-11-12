@@ -32,7 +32,7 @@ class FakeAjaxExample extends React.Component {
     setTimeout(() => {
       this.setState({
         loading: false,
-        log: ['Hello', 'people!', 'Wargaming']
+        log: ['Hello', 'people!', 'WGForge']
       });
     }, 3500);
   }

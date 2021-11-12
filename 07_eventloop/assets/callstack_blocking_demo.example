@@ -19,7 +19,11 @@
       angle = angle > 360 ? angle - 360 : angle;
 
       spinner.style.transform = `rotate(${angle}deg)`;
+      // DO NOT try it at home
+      // only for educational purposes
       animate();
+      // IRL it will cause
+      // "Maximum call stack size exceeded"
   }
 
   animate();
