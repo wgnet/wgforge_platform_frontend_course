@@ -56,8 +56,8 @@ class FakeAjaxExample extends React.Component {
         &nbsp;
         <button onClick={this.alert}>alert</button>
         <ul>
-          {users.map(user => (
-            <li>
+          {users.map((user, i) => (
+            <li key={`key-${i}`}>
               {user.firstname} {user.lastname}
             </li>
           ))}

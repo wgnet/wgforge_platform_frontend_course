@@ -7,7 +7,7 @@ function sleep(s) {
     }
 }
 
-console.log('I go to bed...');
+console.log("I'll be back...");
 sleep(10);
-console.log('I\'m back!');
+console.log("I'm back!");
 // the end!
